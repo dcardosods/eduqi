@@ -1,0 +1,12 @@
+{
+  "name": "scaffolding-webapp",
+  "version": "0.0.0",
+  "dependencies": {
+    "requirejs": "~2.1.4",
+    "modernizr": "~2.6.2",
+    "jquery": "~1.9.1",
+    "transparency": "~0.9.13",
+    "postal.js": "git://github.com/postaljs/postal.js.git#~0.8.2"
+  },
+  "devDependencies": {}
+}
