@@ -6,14 +6,23 @@ body {
     background: #F2E205;
 }
 
-.text-center {
-    text-align: center;
+/* Form */
+input.height-40 {
+    height: 40px
 }
 
+/* Maps */
 #map-canvas {
     height: 500px
 }
 
+/* Utils */
 .background-white {
     background-color: #FFF;
+}
+.text-center {
+    text-align: center;
+}
+.height-40 {
+    height: 40px
 }
