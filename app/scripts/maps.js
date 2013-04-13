@@ -1,5 +1,5 @@
 /*global define */
-define(['async!http://maps.google.com/maps/api/js?sensor=false!callback'], function () {
+define(['async!https://maps.googleapis.com/maps/api/js?libraries=visualization&sensor=false!callback'], function () {
     "use strict";
 
     var parseCEP = function( cep ) {
@@ -7,19 +7,29 @@ define(['async!http://maps.google.com/maps/api/js?sensor=false!callback'], funct
     };
 
     return {
-        addMapToCanvas: function( mapCanvas, cep ) {
+        addMapToCanvas: function( mapCanvas, address ) {
             var options = {
-                    zoom: 17,
+                    zoom: 4,
+                    disableDefaultUI: true,
                     mapTypeId: google.maps.MapTypeId.ROADMAP
             };
             var geocoder = new google.maps.Geocoder();
             var map = new google.maps.Map( mapCanvas, options );
 
-            geocoder.geocode( { 'address': parseCEP( cep ) }, function( results, status ) {
+            geocoder.geocode( { 'address': address }, function( results, status ) {
                 if ( status === google.maps.GeocoderStatus.OK ) {
                     map.setCenter( results[0].geometry.location );
                 }
             });
+
+            return map;
+        },
+        addHeatmapOnMap: function ( map ) {
+            var heatmap = new google.maps.visualization.HeatmapLayer({
+                data: []
+            });
+
+            heatmap.setMap( map );
         }
     }
 

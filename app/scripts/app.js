@@ -2,7 +2,8 @@
 define(['maps', 'school', 'transparency', 'highcharts'], function ( maps, school ) {
     'use strict';
 
-    maps.addMapToCanvas( document.getElementById('map-canvas'), '76820170' );
+    var map = maps.addMapToCanvas( document.getElementById('map-canvas'), 'Brasil' );
+    maps.addHeatmapOnMap( map );
 
     $( document ).on( 'submit', '#search', function( e ) {
         var term = $( '#school-search' ).val();
