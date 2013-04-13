@@ -5,15 +5,17 @@ define(['postal', 'transparency', 'bootstrap'], function ( postal ) {
     var channel = postal.channel();
 
     var getInfos = function ( id, callback ) {
-        callback(
-            {
-                predio: {
-                    telhado: 'teste',
-                    porta: 'teste2',
-                    janela: 'teste3'
+        if ( id == '1' ) {
+            callback(
+                {
+                    predio: {
+                        telhado: 'teste1',
+                        porta: 'teste1',
+                        janela: 'teste1'
+                    }
                 }
-            }
-        );
+            );
+        }
     };
 
     var getSearchData = function ( id, callback ) {
@@ -37,12 +39,14 @@ define(['postal', 'transparency', 'bootstrap'], function ( postal ) {
         );
     }
 
+    var searchData = [  ];
+
     channel.subscribe( 'schools.cep', function( data ) {
 
     });
 
     channel.subscribe( 'schools.getInfos', function( data ) {
-        getInfos( data, function ( infos ) {
+        getInfos( data[0].id, function ( infos ) {
             channel.publish( 'schools.setInfos', infos );
         });
     });
@@ -55,13 +59,15 @@ define(['postal', 'transparency', 'bootstrap'], function ( postal ) {
         }, { debug: true } );
     });
 
-    channel.subscribe( 'schools.getSearchData', function( data ) {
+    channel.subscribe( 'schools.getSearchData', function ( data ) {
         getSearchData( data, function ( searchData ) {
             channel.publish( 'schools.setSearchData', searchData );
         });
     });
 
     channel.subscribe( 'schools.setSearchData', function ( data ) {
+        searchData = data.search;
+
         $("#school-search").typeahead({
             source: function () {
                 return _.pluck( data.search, 'name' );
@@ -70,11 +76,14 @@ define(['postal', 'transparency', 'bootstrap'], function ( postal ) {
     });
 
     return {
-        setInfos: function () {
-            channel.publish( 'schools.getInfos' );
+        setInfos: function ( data ) {
+            channel.publish( 'schools.getInfos', data );
         },
         setSearchData: function () {
             channel.publish( 'schools.getSearchData' );
+        },
+        getSearchData: function() {
+            return searchData;
         }
     }
 
