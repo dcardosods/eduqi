@@ -1,6 +1,8 @@
 /*global define */
-define(['postal', 'maps', 'transparency', 'highcharts'], function ( postal, maps ) {
+define(['maps', 'school', 'transparency', 'highcharts'], function ( maps, school ) {
     'use strict';
 
     maps.addMapToCanvas( document.getElementById('map-canvas'), '76820170' );
+
+    school.setInfos();
 });

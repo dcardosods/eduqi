@@ -36,13 +36,30 @@
         </div>
         <div class="container">
             <div class="row-fluid">
-                <div class="span6">
+                <div class="span6 background-white">
                     <div class="hero-unit">
                         <h1>Eduqi</h1>
                     </div>
+                    <div class="span4">
+                        <div data-toggle="collapse" data-target="#infra-1">
+                            Prédio
+                        </div>
+                        <div id="infra-1" class="collapse">
+                            <table class="table table-hover predio">
+                                <tr class="success"  data-bind="telhado">
+
+                                </tr>
+                                <tr class="warning"  data-bind="porta">
+
+                                </tr>
+                                <tr class="error"  data-bind="janela">
+
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
                 </div>
-                <div id="map-canvas" class="span6">
-                </div>
+                <div id="map-canvas" class="span6"></div>
             </div>
         </div>
         <!--[if lt IE 7]>

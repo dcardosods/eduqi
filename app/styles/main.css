@@ -13,3 +13,7 @@ body {
 #map-canvas {
     height: 500px
 }
+
+.background-white {
+    background-color: #FFF;
+}

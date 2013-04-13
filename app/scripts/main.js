@@ -24,6 +24,6 @@ require.config({
     }
 });
 
-require(['app'], function( app ) {
-
+require(['app', 'bootstrap'], function( app ) {
+    // $(".collapse").collapse()
 });
