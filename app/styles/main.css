@@ -1,10 +1,9 @@
 body {
-    background: #fafafa;
+    background: #C5D9D3;
 }
 
 .hero-unit {
-    margin: 50px auto 0 auto;
-    width: 300px;
+    background: #F2E205;
 }
 
 .text-center {
