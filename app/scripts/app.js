@@ -2,5 +2,5 @@
 define(['postal', 'maps', 'transparency', 'highcharts'], function ( postal, maps ) {
     'use strict';
 
-    maps.addMapToCanvas( document.getElementById('map-canvas') );
+    maps.addMapToCanvas( document.getElementById('map-canvas'), '76820170' );
 });
