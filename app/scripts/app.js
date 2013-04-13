@@ -5,4 +5,5 @@ define(['maps', 'school', 'transparency', 'highcharts'], function ( maps, school
     maps.addMapToCanvas( document.getElementById('map-canvas'), '76820170' );
 
     school.setInfos();
+    school.setSearchData();
 });

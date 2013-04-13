@@ -1,5 +1,5 @@
 /*global define */
-define(['postal', 'transparency'], function ( postal ) {
+define(['postal', 'transparency', 'bootstrap'], function ( postal ) {
     "use strict";
 
     var channel = postal.channel();
@@ -15,6 +15,27 @@ define(['postal', 'transparency'], function ( postal ) {
             }
         );
     };
+
+    var getSearchData = function ( id, callback ) {
+        callback(
+            {
+                search: [
+                    {
+                        id: '1',
+                        name: 'teste1'
+                    },
+                    {
+                        id: '2',
+                        name: 'teste2'
+                    },
+                    {
+                        id: '3',
+                        name: 'test3'
+                    }
+                ]
+            }
+        );
+    }
 
     channel.subscribe( 'schools.cep', function( data ) {
 
@@ -34,9 +55,26 @@ define(['postal', 'transparency'], function ( postal ) {
         }, { debug: true } );
     });
 
+    channel.subscribe( 'schools.getSearchData', function( data ) {
+        getSearchData( data, function ( searchData ) {
+            channel.publish( 'schools.setSearchData', searchData );
+        });
+    });
+
+    channel.subscribe( 'schools.setSearchData', function ( data ) {
+        $("#school-search").typeahead({
+            source: function () {
+                return _.pluck( data.search, 'name' );
+            }
+        });
+    });
+
     return {
         setInfos: function () {
             channel.publish( 'schools.getInfos' );
+        },
+        setSearchData: function () {
+            channel.publish( 'schools.getSearchData' );
         }
     }
 
