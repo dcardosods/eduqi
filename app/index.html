@@ -37,7 +37,7 @@
                     <div class="hero-unit">
                         <h1>Eduqi</h1>
                     </div>
-                    <form id="search" class="form-search">
+                    <form id="search" class="form-search clearfix">
                         <div class="input-append span10 offset1">
                             <input type="text" autocomplete="off" id="school-search" class="search-query span10 height-40" placeholder="Nome da escola">
                             <button id="school-submit" class="btn height-40" type="submit">
@@ -45,22 +45,44 @@
                             </button>
                         </div>
                     </form>
-                    <div class="span4">
-                        <div data-toggle="collapse" data-target="#infra-1">
-                            Prédio
-                        </div>
-                        <div id="infra-1" class="collapse">
-                            <table class="table table-hover predio">
-                                <tr class="success"  data-bind="telhado">
-
-                                </tr>
-                                <tr class="warning"  data-bind="porta">
-
-                                </tr>
-                                <tr class="error"  data-bind="janela">
-
-                                </tr>
-                            </table>
+                    <div class="span12">
+                        <h2>EEEF Nossa Senhora de Fátima</h2>
+                        <h3>Santo Antônio da Patrulha - <span>RS</span></h3>
+                        <div class="accordion">
+                            <div class="accordion-group span5">
+                                <div class="accordion-heading">
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#open-collapse-1" href="#collapse-1">
+                                        Prédio
+                                    </a>
+                                </div>
+                                <div id="collapse-1" class="accordion-body collapse in">
+                                    <div class="accordion-inner">
+                                        <table class="table table-hover table-type-1">
+                                            <tr>
+                                                <td data-bind="table-item-1">
+                                                </td>
+                                                <td>
+                                                    <span class="label table-result-1"></span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td data-bind="table-item-2">
+                                                </td>
+                                                <td>
+                                                    <span class="label table-result-2"></span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td data-bind="table-item-3">
+                                                </td>
+                                                <td>
+                                                    <span class="label table-result-2"></span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

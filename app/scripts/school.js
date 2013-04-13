@@ -8,10 +8,13 @@ define(['postal', 'transparency', 'bootstrap'], function ( postal ) {
         if ( id == '1' ) {
             callback(
                 {
-                    predio: {
-                        telhado: 'teste1',
-                        porta: 'teste1',
-                        janela: 'teste1'
+                    'table-type-1': {
+                        'table-item-1': 'teste1',
+                        'table-result-1': 'Bom',
+                        'table-item-2': 'teste1',
+                        'table-result-2': 'Ruim',
+                        'table-item-3': 'teste1',
+                        'table-result-3': 'Regular'
                     }
                 }
             );
@@ -54,7 +57,7 @@ define(['postal', 'transparency', 'bootstrap'], function ( postal ) {
     channel.subscribe( 'schools.setInfos', function ( data ) {
         var hello = data;
 
-        $('#infra-1').render( hello, {
+        $('#collapse-1').render( hello, {
 
         }, { debug: true } );
     });
