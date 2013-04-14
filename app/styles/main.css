@@ -45,3 +45,13 @@ td.text-center {
 .no-border {
     border: none;
 }
+
+@media (max-width: 777px) {
+    .input-append.span10.offset1 {
+        padding: 0 5%;
+        width: 95%;
+    }
+    .search-query.span10.height-40 {
+        width: inherit;
+    }
+}
