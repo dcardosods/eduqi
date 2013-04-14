@@ -22,11 +22,14 @@ define(['maps', 'school', 'transparency', 'highcharts'], function ( maps, school
             nomeEscola: term
         });
 
-        school.setInfos( 'http://192.168.0.103:8080/eduqi-service/questservlet', match );
+        school.setInfos( 'http://192.168.0.103:8080/eduqi-server/questservlet', match );
 
         $('#school-search').val('');
+        $('#school-name'). text( term );
+        $('#collapse').removeClass('hide');
+        $('#school-hint').addClass('hide');
         e.preventDefault();
     });
 
-    school.setSearchData('http://192.168.0.103:8080/eduqi-service/cachesearch');
+    school.setSearchData('http://192.168.0.103:8080/eduqi-server/cachesearch');
 });

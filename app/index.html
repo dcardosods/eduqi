@@ -20,17 +20,23 @@
         <!-- endbuild -->
     </head>
     <body>
+
         <div class="navbar navbar-fixed-top">
             <div class="navbar-inner">
             </div>
         </div>
+
         <div class="container">
+
             <div class="row-fluid">
+
                 <div class="span6 background-white">
+
                     <div class="hero-unit">
                         <h1>EduQI</h1>
                         <p>Educação é questão de investimento</p>
                     </div>
+
                     <form id="search" class="form-search clearfix">
                         <div class="input-append span10 offset1">
                             <input type="text" autocomplete="off" id="school-search" class="search-query span10 height-40" placeholder="Nome da escola">
@@ -39,39 +45,27 @@
                             </button>
                         </div>
                     </form>
+
                     <div class="span12">
-                        <h2>EEEF Nossa Senhora de Fátima</h2>
-                        <h3>Santo Antônio da Patrulha - <span>RS</span></h3>
-                        <div class="accordion span10 text-center" id="collapse">
+
+                        <h3 id="school-name" class="span9 offset1"></h3>
+
+                        <div class="accordion span10 text-center hide" id="collapse">
 
                             <div class="accordion-group">
                                 <div class="accordion-heading">
                                     <a class="text-center accordion-toggle table-title" data-toggle="collapse" data-parent="#collapse" href="#collapse-1">
-                                        Prédio
+                                        Conservação dos items e equipamentos do prédio
                                     </a>
                                 </div>
                                 <div id="collapse-1" class="accordion-body collapse in">
                                     <div class="accordion-inner">
-                                        <table class="table table-hover no-margin" data-bind="table-type-1">
+                                        <table class="table table-hover no-margin" data-bind="infos">
                                             <tr>
-                                                <td class="no-border" data-bind="table-item-1">
+                                                <td class="no-border" data-bind="questao">
                                                 </td>
                                                 <td class="no-border text-center">
-                                                    <span class="label" data-bind="table-result-1"></span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td data-bind="table-item-2">
-                                                </td>
-                                                <td class="text-center">
-                                                    <span class="label" data-bind="table-result-2"></span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td data-bind="table-item-3">
-                                                </td>
-                                                <td class="text-center">
-                                                    <span class="label" data-bind="table-result-3"></span>
+                                                    <span class="label" data-bind="resposta"></span>
                                                 </td>
                                             </tr>
                                         </table>
@@ -82,31 +76,17 @@
                             <div class="accordion-group">
                                 <div class="accordion-heading">
                                     <a class="text-center accordion-toggle table-title" data-toggle="collapse" data-parent="#collapse" href="#collapse-2">
-                                        Sala de aula
+                                        Aspectos em relação as salas de aula
                                     </a>
                                 </div>
                                 <div id="collapse-2" class="accordion-body collapse">
                                     <div class="accordion-inner">
-                                        <table class="table table-hover no-margin" data-bind="table-type-1">
+                                        <table class="table table-hover no-margin" data-bind="infos">
                                             <tr>
-                                                <td class="no-border" data-bind="table-item-1">
+                                                <td class="no-border" data-bind="questao">
                                                 </td>
-                                                <td class="no-border">
-                                                    <span class="label" data-bind="table-result-1"></span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td data-bind="table-item-2">
-                                                </td>
-                                                <td>
-                                                    <span class="label" data-bind="table-result-2"></span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td data-bind="table-item-3">
-                                                </td>
-                                                <td>
-                                                    <span class="label" data-bind="table-result-3"></span>
+                                                <td class="no-border text-center">
+                                                    <span class="label" data-bind="resposta"></span>
                                                 </td>
                                             </tr>
                                         </table>
@@ -117,31 +97,17 @@
                             <div class="accordion-group">
                                 <div class="accordion-heading">
                                     <a class="text-center accordion-toggle table-title" data-toggle="collapse" data-parent="#collapse" href="#collapse-3">
-                                        Segurança
+                                        Aspectos em relação a segurança da escola e dos alunos
                                     </a>
                                 </div>
                                 <div id="collapse-3" class="accordion-body collapse">
                                     <div class="accordion-inner">
-                                        <table class="table table-hover no-margin" data-bind="table-type-1">
+                                        <table class="table table-hover no-margin" data-bind="infos">
                                             <tr>
-                                                <td class="no-border" data-bind="table-item-1">
+                                                <td class="no-border" data-bind="questao">
                                                 </td>
-                                                <td class="no-border">
-                                                    <span class="label" data-bind="table-result-1"></span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td data-bind="table-item-2">
-                                                </td>
-                                                <td>
-                                                    <span class="label" data-bind="table-result-2"></span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td data-bind="table-item-3">
-                                                </td>
-                                                <td>
-                                                    <span class="label" data-bind="table-result-3"></span>
+                                                <td class="no-border text-center">
+                                                    <span class="label" data-bind="resposta"></span>
                                                 </td>
                                             </tr>
                                         </table>
@@ -152,31 +118,17 @@
                             <div class="accordion-group">
                                 <div class="accordion-heading">
                                     <a class="text-center accordion-toggle table-title" data-toggle="collapse" data-parent="#collapse" href="#collapse-4">
-                                        Tecnologia
+                                        Recursos da escola e suas condições de uso
                                     </a>
                                 </div>
                                 <div id="collapse-4" class="accordion-body collapse">
                                     <div class="accordion-inner">
-                                        <table class="table table-hover no-margin" data-bind="table-type-1">
+                                        <table class="table table-hover no-margin" data-bind="infos">
                                             <tr>
-                                                <td class="no-border" data-bind="table-item-1">
+                                                <td class="no-border" data-bind="questao">
                                                 </td>
-                                                <td class="no-border">
-                                                    <span class="label" data-bind="table-result-1"></span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td data-bind="table-item-2">
-                                                </td>
-                                                <td>
-                                                    <span class="label" data-bind="table-result-2"></span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td data-bind="table-item-3">
-                                                </td>
-                                                <td>
-                                                    <span class="label" data-bind="table-result-3"></span>
+                                                <td class="no-border text-center">
+                                                    <span class="label" data-bind="resposta"></span>
                                                 </td>
                                             </tr>
                                         </table>
@@ -185,10 +137,57 @@
                             </div>
 
                         </div>
+
+                        <div id="school-hint" class="well span10">
+                            Conheça mais sobre a infra-estrutura das, se elas são seguras, e quais recursos disponibilizam para os alunos.
+                        </div>
+
                     </div>
                 </div>
+
                 <div id="map-canvas" class="span6"></div>
+
+                <div class="span6  background-white pull-right">
+
+                    <div class="span11 offset1">
+
+                        <h3>Escolas com melhor o desempenho</h3>
+
+                        <div class="accordion span10 text-center" id="collapse-5">
+
+                            <div class="accordion-group">
+                                <div class="accordion-heading">
+                                    <a class="text-center accordion-toggle table-title" data-toggle="collapse" data-parent="#collapse-5" href="#collapse-6">
+                                        Prédio
+                                    </a>
+                                </div>
+                                <div id="collapse-6" class="accordion-body collapse in">
+                                    <div class="accordion-inner">
+                                        <table class="table table-hover no-margin" data-bind="table-type-1">
+                                            <tr>
+                                                <td class="no-border" data-bind="table-item-1">
+                                                </td>
+                                                <td class="no-border text-center">
+                                                    <span class="label" data-bind="table-result-1"></span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="well span10">
+                            Conheça sobre a infra-estrutura, segurança, e os recursos das escolas com melhores média na Prova Brasil.
+                        </div>
+
+                    </div>
+
+                </div>
+
             </div>
+
         </div>
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>

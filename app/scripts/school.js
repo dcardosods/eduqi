@@ -4,21 +4,23 @@ define(['postal', 'transparency', 'bootstrap'], function ( postal ) {
 
     var channel = postal.channel();
 
-    var getInfos = function ( id, callback ) {
-        if ( id == '1' ) {
-            callback(
-                {
-                    'table-type-1': {
-                        'table-item-1': 'teste1',
-                        'table-result-1': 'Bom',
-                        'table-item-2': 'teste1',
-                        'table-result-2': 'Ruim',
-                        'table-item-3': 'teste1',
-                        'table-result-3': 'Regular'
-                    }
-                }
-            );
-        }
+    var getInfos = function ( url, id, callback ) {
+        $.ajax({
+            url: url,
+            dataType: 'jsonp',
+            data: {
+                idEscola: id
+            },
+            complete: function(xhr, textStatus) {
+                //called when complete
+            },
+            success: function(data, textStatus, xhr) {
+                callback( data );
+            },
+            error: function(xhr, textStatus, errorThrown) {
+                //called when there is an error
+            }
+        });
     };
 
     var getSearchData = function ( url, callback ) {
@@ -44,17 +46,55 @@ define(['postal', 'transparency', 'bootstrap'], function ( postal ) {
     });
 
     channel.subscribe( 'schools.getInfos', function( data ) {
-        getInfos( data[0].idEscola, function ( infos ) {
+        getInfos( data.url, data.data[0].idEscola, function ( infos ) {
             channel.publish( 'schools.setInfos', infos );
         });
     });
 
     channel.subscribe( 'schools.setInfos', function ( data ) {
-        var hello = data;
+        var collapse1 = {};
+        collapse1.infos = [];
+        var collapse2 = {};
+        collapse2.infos = [];
+        var collapse3 = {};
+        collapse3.infos = [];
+        var collapse4 = {};
+        collapse4.infos = [];
+        var i = 0;
 
-        $('#collapse-1').render( hello, {
+        $.each(data, function( key, value ) {
+            if ( i < 13 ) {
+                collapse1.infos.push({
+                    questao: value[0],
+                    resposta: value[1]
+                });
+            }
+            else if ( i >= 13 && i < 15) {
+                collapse2.infos.push({
+                    questao: value[0],
+                    resposta: value[1]
+                });
+            }
+            else if ( i >= 15 && i < 29) {
+                collapse3.infos.push({
+                    questao: value[0],
+                    resposta: value[1]
+                });
+            }
+            else {
+                collapse4.infos.push({
+                    questao: value[0],
+                    resposta: value[1]
+                });
+            }
 
-        }, { debug: true } );
+            i++
+        });
+
+        $('#collapse-1').render( collapse1, {});
+        $('#collapse-2').render( collapse2, {});
+        $('#collapse-3').render( collapse3, {});
+        $('#collapse-4').render( collapse4, {});
     });
 
     channel.subscribe( 'schools.getSearchData', function ( data ) {
@@ -74,8 +114,8 @@ define(['postal', 'transparency', 'bootstrap'], function ( postal ) {
     });
 
     return {
-        setInfos: function ( data ) {
-            channel.publish( 'schools.getInfos', data );
+        setInfos: function ( url, data ) {
+            channel.publish( 'schools.getInfos', { url: url, data: data } );
         },
         setSearchData: function ( url ) {
             channel.publish( 'schools.getSearchData', { url: url } );
