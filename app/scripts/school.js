@@ -21,35 +21,30 @@ define(['postal', 'transparency', 'bootstrap'], function ( postal ) {
         }
     };
 
-    var getSearchData = function ( id, callback ) {
-        callback(
-            {
-                search: [
-                    {
-                        id: '1',
-                        name: 'teste1'
-                    },
-                    {
-                        id: '2',
-                        name: 'teste2'
-                    },
-                    {
-                        id: '3',
-                        name: 'test3'
-                    }
-                ]
+    var getSearchData = function ( url, callback ) {
+        $.ajax({
+            url: url,
+            dataType: 'jsonp',
+            complete: function(xhr, textStatus) {
+                //called when complete
+            },
+            success: function(data, textStatus, xhr) {
+                callback( data );
+            },
+            error: function(xhr, textStatus, errorThrown) {
+                //called when there is an error
             }
-        );
+        });
     }
 
-    var searchData = [  ];
+    var searchData = [];
 
     channel.subscribe( 'schools.cep', function( data ) {
 
     });
 
     channel.subscribe( 'schools.getInfos', function( data ) {
-        getInfos( data[0].id, function ( infos ) {
+        getInfos( data[0].idEscola, function ( infos ) {
             channel.publish( 'schools.setInfos', infos );
         });
     });
@@ -63,17 +58,17 @@ define(['postal', 'transparency', 'bootstrap'], function ( postal ) {
     });
 
     channel.subscribe( 'schools.getSearchData', function ( data ) {
-        getSearchData( data, function ( searchData ) {
+        getSearchData( data.url, function ( searchData ) {
             channel.publish( 'schools.setSearchData', searchData );
         });
     });
 
     channel.subscribe( 'schools.setSearchData', function ( data ) {
-        searchData = data.search;
+        searchData = data;
 
         $("#school-search").typeahead({
             source: function () {
-                return _.pluck( data.search, 'name' );
+                return _.pluck( data, 'nomeEscola' );
             }
         });
     });
@@ -82,8 +77,8 @@ define(['postal', 'transparency', 'bootstrap'], function ( postal ) {
         setInfos: function ( data ) {
             channel.publish( 'schools.getInfos', data );
         },
-        setSearchData: function () {
-            channel.publish( 'schools.getSearchData' );
+        setSearchData: function ( url ) {
+            channel.publish( 'schools.getSearchData', { url: url } );
         },
         getSearchData: function() {
             return searchData;

@@ -24,7 +24,7 @@ define(['async!https://maps.googleapis.com/maps/api/js?libraries=visualization&s
 
             return map;
         },
-        addHeatmapOnMap: function ( map ) {
+        addHeatmapOnMap: function ( map, ceps ) {
             var heatmap = new google.maps.visualization.HeatmapLayer({
                 data: []
             });
