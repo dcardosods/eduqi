@@ -76,7 +76,7 @@ define(['async!https://maps.googleapis.com/maps/api/js?libraries=visualization&s
                     // $('#map-canvas').css('height', '230px');
                     heatmap.setMap( map );
                     //map.setZoom( 7 );
-                    map.setCenter( heatmap );
+                    map.setCenter( heatmapData );
                 });
             });
         }
