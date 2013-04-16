@@ -37,7 +37,23 @@ define(['postal', 'transparency', 'bootstrap'], function ( postal ) {
                 //called when there is an error
             }
         });
-    }
+    };
+
+    var getStatistics = function ( url, callback ) {
+        $.ajax({
+            url: url,
+            dataType: 'jsonp',
+            complete: function(xhr, textStatus) {
+                //called when complete
+            },
+            success: function(data, textStatus, xhr) {
+                callback( data );
+            },
+            error: function(xhr, textStatus, errorThrown) {
+                //called when there is an error
+            }
+        });
+    };
 
     var searchData = [];
 
@@ -65,26 +81,26 @@ define(['postal', 'transparency', 'bootstrap'], function ( postal ) {
         $.each(data, function( key, value ) {
             if ( i < 13 ) {
                 collapse1.infos.push({
-                    questao: value[0],
-                    resposta: value[1]
+                    question: value[0],
+                    answer: value[1]
                 });
             }
             else if ( i >= 13 && i < 15) {
                 collapse2.infos.push({
-                    questao: value[0],
-                    resposta: value[1]
+                    question: value[0],
+                    answer: value[1]
                 });
             }
             else if ( i >= 15 && i < 29) {
                 collapse3.infos.push({
-                    questao: value[0],
-                    resposta: value[1]
+                    question: value[0],
+                    answer: value[1]
                 });
             }
             else {
                 collapse4.infos.push({
-                    questao: value[0],
-                    resposta: value[1]
+                    question: value[0],
+                    answer: value[1]
                 });
             }
 
@@ -113,12 +129,55 @@ define(['postal', 'transparency', 'bootstrap'], function ( postal ) {
         });
     });
 
+    channel.subscribe( 'schools.getStatistics', function ( data ) {
+        getStatistics( data.url, function ( statistics ) {
+            channel.publish( 'schools.setStatistics', statistics );
+        });
+    });
+
+    channel.subscribe( 'schools.setStatistics', function ( data ) {
+        var collapse6 = {};
+        collapse6.infos = [];
+        var collapse7 = {};
+        collapse7.infos = [];
+        var collapse8 = {};
+        collapse8.infos = [];
+        var collapse9 = {};
+        collapse9.infos = [];
+        var i = 0;
+
+        $.each(data, function( key, value ) {
+            if ( i < 13 ) {
+                collapse6.infos.push(value);
+            }
+            else if ( i >= 13 && i < 15) {
+                collapse7.infos.push(value);
+            }
+            else if ( i >= 15 && i < 29) {
+                collapse8.infos.push(value);
+            }
+            else {
+                collapse9.infos.push(value);
+            }
+
+            i++
+        });
+
+        $('#collapse-6').render( collapse6, {});
+        // $('#collapse-7').render( collapse7, {});
+        // $('#collapse-8').render( collapse8, {});
+        $('#collapse-9').render( collapse9, {});
+    });
+
     return {
         setInfos: function ( url, data ) {
             channel.publish( 'schools.getInfos', { url: url, data: data } );
         },
         setSearchData: function ( url ) {
             channel.publish( 'schools.getSearchData', { url: url } );
+        },
+        setStatistics: function ( url ) {
+            channel.publish( 'schools.getStatistics', { url: url } );
         },
         getSearchData: function() {
             return searchData;
