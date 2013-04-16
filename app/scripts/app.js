@@ -2,6 +2,14 @@
 define(['maps', 'school', 'transparency', 'highcharts'], function ( maps, school ) {
     'use strict';
 
+    var conf = {
+        cachesearch: 'http://ec2-54-232-204-44.sa-east-1.compute.amazonaws.com:8080/eduqi-server/cachesearch',
+        probservlet: 'http://ec2-54-232-204-44.sa-east-1.compute.amazonaws.com:8080/eduqi-server/probservlet',
+        questservlet: 'http://ec2-54-232-204-44.sa-east-1.compute.amazonaws.com:8080/eduqi-server/questservlet',
+        cepprovider: 'http://ec2-54-232-204-44.sa-east-1.compute.amazonaws.com:8080/eduqi-server/cepprovider',
+        geocode: 'http://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/find'
+    }
+
     var map = maps.addMapToCanvas( document.getElementById('map-canvas'), 'Brasil' );
 
     $( document ).on( 'submit', '#search', function( e ) {
@@ -11,9 +19,8 @@ define(['maps', 'school', 'transparency', 'highcharts'], function ( maps, school
             nomeEscola: term
         });
 
-        school.setInfos( 'http://192.168.0.121:8080/eduqi-server/questservlet', match );
-        maps.addHeatmapOnMap( 'http://192.168.0.121:8080/eduqi-server/cepprovider',
-            'http://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/find', match, map );
+        school.setInfos( conf.questservlet, match );
+        maps.addHeatmapOnMap( conf.cepprovider, conf.geocode, match, map );
 
         $('#school-search').val('');
         $('#school-name'). text( term );
@@ -22,8 +29,8 @@ define(['maps', 'school', 'transparency', 'highcharts'], function ( maps, school
         e.preventDefault();
     });
 
-    school.setSearchData('http://192.168.0.121:8080/eduqi-server/cachesearch');
-    school.setStatistics('http://192.168.0.121:8080/eduqi-server/probservlet');
+    school.setSearchData( conf.cachesearch );
+    school.setStatistics( conf.probservlet );
 
     $('#collapse-5').removeClass('hide');
 });

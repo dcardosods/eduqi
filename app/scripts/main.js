@@ -25,5 +25,5 @@ require.config({
 });
 
 require(['app', 'bootstrap'], function( app ) {
-    // $("#school-search").typeahead({source: ['teste', 'teste1', 'teste2']});
+
 });
