@@ -1,0 +1,393 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link rel="stylesheet" href="styles/vendor/bootstrap.css">
+        <link rel="stylesheet" href="styles/main.css">
+        <script src="scripts/vendor/modernizr.js"></script>
+    </head>
+    <body>
+
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+            </div>
+        </div>
+
+        <div class="container">
+
+            <div class="row-fluid">
+
+                <div class="span6 background-white">
+
+                    <div class="hero-unit">
+                        <h1>EduQI</h1>
+                        <p>Educação é questão de investimento</p>
+                    </div>
+
+                    <form id="search" class="form-search clearfix">
+                        <div class="input-append span10 offset1">
+                            <input type="text" autocomplete="off" id="school-search" class="search-query span10 height-40" placeholder="Nome da escola">
+                            <button id="school-submit" class="btn height-40" type="submit">
+                                <i class="icon-search"></i>
+                            </button>
+                        </div>
+                    </form>
+
+                    <div class="span12">
+
+                        <h3 id="school-name" class="span9 offset1"></h3>
+
+                        <div class="accordion span10 text-center hide" id="collapse">
+
+                            <div class="accordion-group">
+                                <div class="accordion-heading">
+                                    <a class="text-center accordion-toggle table-title" data-toggle="collapse" data-parent="#collapse" href="#collapse-1">
+                                        Conservação dos items e equipamentos do prédio
+                                    </a>
+                                </div>
+                                <div id="collapse-1" class="accordion-body collapse in">
+                                    <div class="accordion-inner">
+                                        <table class="table table-hover no-margin" data-bind="infos">
+                                            <tr>
+                                                <td class="no-border" data-bind="question">
+                                                </td>
+                                                <td class="no-border text-center">
+                                                    <span class="label" data-bind="answer"></span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-group">
+                                <div class="accordion-heading">
+                                    <a class="text-center accordion-toggle table-title" data-toggle="collapse" data-parent="#collapse" href="#collapse-2">
+                                        Aspectos relacionados às salas de aula
+                                    </a>
+                                </div>
+                                <div id="collapse-2" class="accordion-body collapse">
+                                    <div class="accordion-inner">
+                                        <table class="table table-hover no-margin" data-bind="infos">
+                                            <tr>
+                                                <td class="no-border" data-bind="question">
+                                                </td>
+                                                <td class="no-border text-center">
+                                                    <span class="label" data-bind="answer"></span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-group">
+                                <div class="accordion-heading">
+                                    <a class="text-center accordion-toggle table-title" data-toggle="collapse" data-parent="#collapse" href="#collapse-3">
+                                        Aspectos relacionados à segurança da escola e dos alunos
+                                    </a>
+                                </div>
+                                <div id="collapse-3" class="accordion-body collapse">
+                                    <div class="accordion-inner">
+                                        <table class="table table-hover no-margin" data-bind="infos">
+                                            <tr>
+                                                <td class="no-border" data-bind="question">
+                                                </td>
+                                                <td class="no-border text-center">
+                                                    <span class="label" data-bind="answer"></span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-group">
+                                <div class="accordion-heading">
+                                    <a class="text-center accordion-toggle table-title" data-toggle="collapse" data-parent="#collapse" href="#collapse-4">
+                                        Recursos da escola e suas condições de uso
+                                    </a>
+                                </div>
+                                <div id="collapse-4" class="accordion-body collapse">
+                                    <div class="accordion-inner">
+                                        <table class="table table-hover no-margin" data-bind="infos">
+                                            <tr>
+                                                <td class="no-border" data-bind="question">
+                                                </td>
+                                                <td class="no-border text-center">
+                                                    <span class="label" data-bind="answer"></span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div id="school-hint" class="well span10">
+                            Conheça mais sobre a infra-estrutura das escolas, se elas são seguras, e quais recursos disponibilizam para os alunos.
+                        </div>
+
+                    </div>
+                </div>
+
+                <div id="map-canvas" class="span6"></div>
+
+                <div class="span6 background-white pull-right">
+
+                    <div class="span11 offset1">
+
+                        <h3>Escolas com melhor o desempenho na Prova Brasil 2011</h3>
+
+                        <div class="accordion span10 text-center hide" id="collapse-5">
+
+                            <div class="accordion-group">
+                                <div class="accordion-heading">
+                                    <a class="text-center accordion-toggle table-title" data-toggle="collapse" data-parent="#collapse-5" href="#collapse-6">
+                                        Conservação dos items e equipamentos do prédio
+                                    </a>
+                                </div>
+                                <div id="collapse-6" class="accordion-body collapse in">
+                                    <div class="accordion-inner">
+                                        <table class="table table-hover no-margin">
+                                            <thead>
+                                                <tr>
+                                                    <th class="no-border">
+                                                        Questão
+                                                    </th>
+                                                    <th class="no-border text-center">
+                                                        Bom
+                                                    </th>
+                                                    <th class="no-border text-center">
+                                                        Regular
+                                                    </th>
+                                                    <th class="no-border text-center">
+                                                        Ruim
+                                                    </th>
+                                                    <th class="no-border text-center">
+                                                        Inexistente
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody data-bind="infos">
+                                                <tr>
+                                                    <td class="no-border" data-bind="question">
+                                                    </td>
+                                                    <td class="no-border text-center">
+                                                        <span class="label" data-bind="bom"></span>
+                                                    </td>
+                                                    <td class="no-border text-center">
+                                                        <span class="label" data-bind="regular"></span>
+                                                    </td>
+                                                    <td class="no-border text-center">
+                                                        <span class="label" data-bind="ruim"></span>
+                                                    </td>
+                                                    <td class="no-border text-center">
+                                                        <span class="label" data-bind="inexistente"></span>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-group">
+                                <div class="accordion-heading">
+                                    <a class="text-center accordion-toggle table-title" data-toggle="collapse" data-parent="#collapse-5" href="#">
+                                        Aspectos relacionados às salas de aula
+                                    </a>
+                                </div>
+                                <div id="collapse-7" class="accordion-body collapse">
+                                    <div class="accordion-inner">
+                                        <table class="table table-hover no-margin">
+                                            <thead>
+                                                <tr>
+                                                    <th class="no-border">
+                                                        Questão
+                                                    </th>
+                                                    <th class="no-border text-center">
+                                                        Bom
+                                                    </th>
+                                                    <th class="no-border text-center">
+                                                        Regular
+                                                    </th>
+                                                    <th class="no-border text-center">
+                                                        Ruim
+                                                    </th>
+                                                    <th class="no-border text-center">
+                                                        Inexistente
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody data-bind="infos">
+                                                <tr>
+                                                    <td class="no-border" data-bind="question">
+                                                    </td>
+                                                    <td class="no-border text-center">
+                                                        <span class="label" data-bind="bom"></span>
+                                                    </td>
+                                                    <td class="no-border text-center">
+                                                        <span class="label" data-bind="regular"></span>
+                                                    </td>
+                                                    <td class="no-border text-center">
+                                                        <span class="label" data-bind="ruim"></span>
+                                                    </td>
+                                                    <td class="no-border text-center">
+                                                        <span class="label" data-bind="inexistente"></span>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-group">
+                                <div class="accordion-heading">
+                                    <a class="text-center accordion-toggle table-title" data-toggle="collapse" data-parent="#collapse-5" href="#">
+                                        Aspectos relacionados à segurança da escola e dos alunos
+                                    </a>
+                                </div>
+                                <div id="collapse-8" class="accordion-body collapse">
+                                    <div class="accordion-inner">
+                                        <table class="table table-hover no-margin">
+                                            <thead>
+                                                <tr>
+                                                    <th class="no-border">
+                                                        Questão
+                                                    </th>
+                                                    <th class="no-border text-center">
+                                                        Bom
+                                                    </th>
+                                                    <th class="no-border text-center">
+                                                        Regular
+                                                    </th>
+                                                    <th class="no-border text-center">
+                                                        Ruim
+                                                    </th>
+                                                    <th class="no-border text-center">
+                                                        Inexistente
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody data-bind="infos">
+                                                <tr>
+                                                    <td class="no-border" data-bind="question">
+                                                    </td>
+                                                    <td class="no-border text-center">
+                                                        <span class="label" data-bind="bom"></span>
+                                                    </td>
+                                                    <td class="no-border text-center">
+                                                        <span class="label" data-bind="regular"></span>
+                                                    </td>
+                                                    <td class="no-border text-center">
+                                                        <span class="label" data-bind="ruim"></span>
+                                                    </td>
+                                                    <td class="no-border text-center">
+                                                        <span class="label" data-bind="inexistente"></span>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-group">
+                                <div class="accordion-heading">
+                                    <a class="text-center accordion-toggle table-title" data-toggle="collapse" data-parent="#collapse-5" href="#collapse-9">
+                                        Recursos da escola e suas condições de uso
+                                    </a>
+                                </div>
+                                <div id="collapse-9" class="accordion-body collapse">
+                                    <div class="accordion-inner">
+                                        <table class="table table-hover no-margin">
+                                            <thead>
+                                                <tr>
+                                                    <th class="no-border">
+                                                        Questão
+                                                    </th>
+                                                    <th class="no-border text-center">
+                                                        Bom
+                                                    </th>
+                                                    <th class="no-border text-center">
+                                                        Regular
+                                                    </th>
+                                                    <th class="no-border text-center">
+                                                        Ruim
+                                                    </th>
+                                                    <th class="no-border text-center">
+                                                        Inexistente
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody data-bind="infos">
+                                                <tr>
+                                                    <td class="no-border" data-bind="question">
+                                                    </td>
+                                                    <td class="no-border text-center">
+                                                        <span class="label" data-bind="bom"></span>
+                                                    </td>
+                                                    <td class="no-border text-center">
+                                                        <span class="label" data-bind="regular"></span>
+                                                    </td>
+                                                    <td class="no-border text-center">
+                                                        <span class="label" data-bind="ruim"></span>
+                                                    </td>
+                                                    <td class="no-border text-center">
+                                                        <span class="label" data-bind="inexistente"></span>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="well span10">
+                            Conheça sobre a infra-estrutura, segurança, e os recursos das escolas com melhores média na Prova Brasil.
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="row-fluid footer">
+                <div class="well pull-left">
+                    Projeto desenvolvido por
+                    <a href="https://github.com/dcardosods">Daniel Cardoso</a> e <a href="https://github.com/samuelyuri">Samuel Zvir</a>.
+                    Código fontes em
+                    <a href="https://github.com/dcardosods/eduqi">github.com/dcardosods/eduqi</a> e <a href="https://github.com/samuelyuri/eduqiservice">github.com/samuelyuri/eduqiservice</a>.
+                </div>
+                <img id="prova-brasil" src="http://4.bp.blogspot.com/-70QAC96vKpI/Tcg7N0alArI/AAAAAAAAA98/ddY1scxRHtU/s1600/provabrasil.JPG" alt="Prova Brasil 2011">
+            </div>
+
+        </div>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+        <script>
+            var _gaq=[['_setAccount','UA-40164918-1'],['_trackPageview']];
+            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)}(document,'script'));
+        </script>
+
+        <script data-main="scripts/main" src="components/requirejs/require.js"></script>
+</body>
+</html>
