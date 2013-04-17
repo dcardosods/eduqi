@@ -186,6 +186,19 @@ module.exports = function (grunt) {
             target: {
                 rjsConfig: '<%= yeoman.app %>/scripts/main.js'
             }
+        },
+        replace: {
+          dist: {
+            options: {
+              variables: {
+                'UA-XXXXX-X': 'UA-40164918-1'
+              }
+            },
+            files: [{
+                src: ['<%= yeoman.dist %>/index.html'],
+                dest: '<%= yeoman.dist %>/index.html'
+            }]
+          }
         }
     });
 
@@ -218,7 +231,8 @@ module.exports = function (grunt) {
         'cssmin',
         'uglify',
         'copy',
-        'usemin'
+        'usemin',
+        'replace'
     ]);
 
     grunt.registerTask('default', [
