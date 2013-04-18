@@ -189,9 +189,9 @@ define(['postal', 'transparency', 'bootstrap'], function ( postal ) {
         });
 
         $('#collapse-6').render( collapse6, directives );
-        // $('#collapse-7').render( collapse7, {});
-        // $('#collapse-8').render( collapse8, {});
-        $('#collapse-9').render( collapse9, {});
+        // $('#collapse-7').render( collapse7, directives );
+        // $('#collapse-8').render( collapse8, directives );
+        $('#collapse-9').render( collapse9, directives );
     });
 
     return {
