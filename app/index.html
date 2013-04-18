@@ -21,12 +21,30 @@
     </head>
     <body>
 
+        <div id="sobre" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="labelSobre" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="labelSobre">Sobre</h3>
+            </div>
+            <div class="modal-body">
+                <p>
+                    O EduQI é um portal que tem por objetivo disponibilizar dados estatísticos referentes a infra-estrutura das escolas do Brasil.
+                </p>
+                <p>
+                    Os dados são obtidos da Prova Brasil de 2011, e são usados para fazer uma média das condições de infra-estrutura, de segurança, e de recursos de auxílio ao ensino, das 1000 escolas com melhor desempenho na Prova Brasil de 2011.
+                </p>
+                <p>
+                    Com essa média é possível analisar e comparar as condições, entre uma escola selecionada apartir da busca, e a média das escolas com as melhores classificações. O objetivo dessa comparação é auxiliar na identificação de prioridades para o investimentos nas escolas.
+                </p>
+            </div>
+        </div>
+
         <div class="navbar navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container">
                     <a class="brand" href="#">EduQI</a>
                     <ul class="nav">
-                        <li><a href="#">Sobre</a></li>
+                        <li><a href="#sobre" role="button" data-toggle="modal">Sobre</a></li>
                     </ul>
                 </div>
             </div>
