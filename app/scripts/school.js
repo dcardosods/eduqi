@@ -146,6 +146,31 @@ define(['postal', 'transparency', 'bootstrap'], function ( postal ) {
         collapse9.infos = [];
         var i = 0;
 
+        var directives = {
+            infos: {
+                bom: {
+                    text: function() {
+                        return this.bom + ' %';
+                    }
+                },
+                regular: {
+                    text: function() {
+                        return this.ruim + ' %';
+                    }
+                },
+                ruim: {
+                    text: function() {
+                        return this.ruim + ' %';
+                    }
+                },
+                inexistente: {
+                    text: function() {
+                        return this.inexistente + ' %';
+                    }
+                }
+            }
+        };
+
         $.each(data, function( key, value ) {
             if ( i < 13 ) {
                 collapse6.infos.push(value);
@@ -163,7 +188,7 @@ define(['postal', 'transparency', 'bootstrap'], function ( postal ) {
             i++
         });
 
-        $('#collapse-6').render( collapse6, {});
+        $('#collapse-6').render( collapse6, directives );
         // $('#collapse-7').render( collapse7, {});
         // $('#collapse-8').render( collapse8, {});
         $('#collapse-9').render( collapse9, {});
