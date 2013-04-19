@@ -3,7 +3,7 @@ body {
 }
 
 .hero-unit {
-    background: #F2E205;
+    background: #F2E205 url('../images/beta.png') no-repeat 0 36px;
 }
 
 /* Form */
