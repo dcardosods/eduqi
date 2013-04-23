@@ -1,5 +1,5 @@
-/*global define */
-define(['maps', 'school', 'transparency', 'highcharts'], function ( maps, school ) {
+/*global define, $, _ */
+define(['maps', 'school', 'transparency', 'highcharts'], function( maps, school ) {
     'use strict';
 
     var conf = {
@@ -8,7 +8,7 @@ define(['maps', 'school', 'transparency', 'highcharts'], function ( maps, school
         questservlet: 'http://54.232.204.9:8080/eduqi-server/questservlet',
         cepprovider: 'http://54.232.204.9:8080/eduqi-server/cepprovider',
         geocode: 'http://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/find'
-    }
+    };
 
     var map = maps.addMapToCanvas( document.getElementById('map-canvas'), 'Brasil' );
 

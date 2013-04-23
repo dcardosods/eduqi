@@ -1,73 +1,51 @@
-/*global define */
-define(['postal', 'transparency', 'bootstrap'], function ( postal ) {
-    "use strict";
+/*global define, $, _ */
+define(['postal', 'transparency', 'bootstrap'], function( postal ) {
+    'use strict';
 
     var channel = postal.channel();
 
-    var getInfos = function ( url, id, callback ) {
+    var getInfos = function( url, id, callback ) {
         $.ajax({
             url: url,
             dataType: 'jsonp',
             data: {
                 idEscola: id
             },
-            complete: function(xhr, textStatus) {
-                //called when complete
-            },
-            success: function(data, textStatus, xhr) {
+            success: function( data ) {
                 callback( data );
-            },
-            error: function(xhr, textStatus, errorThrown) {
-                //called when there is an error
             }
         });
     };
 
-    var getSearchData = function ( url, callback ) {
+    var getSearchData = function( url, callback ) {
         $.ajax({
             url: url,
             dataType: 'jsonp',
-            complete: function(xhr, textStatus) {
-                //called when complete
-            },
-            success: function(data, textStatus, xhr) {
+            success: function( data ) {
                 callback( data );
-            },
-            error: function(xhr, textStatus, errorThrown) {
-                //called when there is an error
             }
         });
     };
 
-    var getStatistics = function ( url, callback ) {
+    var getStatistics = function( url, callback ) {
         $.ajax({
             url: url,
             dataType: 'jsonp',
-            complete: function(xhr, textStatus) {
-                //called when complete
-            },
-            success: function(data, textStatus, xhr) {
+            success: function( data ) {
                 callback( data );
-            },
-            error: function(xhr, textStatus, errorThrown) {
-                //called when there is an error
             }
         });
     };
 
     var searchData = [];
 
-    channel.subscribe( 'schools.cep', function( data ) {
-
-    });
-
     channel.subscribe( 'schools.getInfos', function( data ) {
-        getInfos( data.url, data.data[0].idEscola, function ( infos ) {
+        getInfos( data.url, data.data[0].idEscola, function( infos ) {
             channel.publish( 'schools.setInfos', infos );
         });
     });
 
-    channel.subscribe( 'schools.setInfos', function ( data ) {
+    channel.subscribe( 'schools.setInfos', function( data ) {
         var collapse1 = {};
         collapse1.infos = [];
         var collapse2 = {};
@@ -78,7 +56,7 @@ define(['postal', 'transparency', 'bootstrap'], function ( postal ) {
         collapse4.infos = [];
         var i = 0;
 
-        $.each(data, function( key, value ) {
+        $.each( data, function( key, value ) {
             if ( i < 13 ) {
                 collapse1.infos.push({
                     question: value[0],
@@ -104,38 +82,38 @@ define(['postal', 'transparency', 'bootstrap'], function ( postal ) {
                 });
             }
 
-            i++
+            i++;
         });
 
-        $('#collapse-1').render( collapse1, {});
-        $('#collapse-2').render( collapse2, {});
-        $('#collapse-3').render( collapse3, {});
-        $('#collapse-4').render( collapse4, {});
+        $('#collapse-1').render( collapse1, {} );
+        $('#collapse-2').render( collapse2, {} );
+        $('#collapse-3').render( collapse3, {} );
+        $('#collapse-4').render( collapse4, {} );
     });
 
-    channel.subscribe( 'schools.getSearchData', function ( data ) {
-        getSearchData( data.url, function ( searchData ) {
+    channel.subscribe( 'schools.getSearchData', function( data ) {
+        getSearchData( data.url, function( searchData ) {
             channel.publish( 'schools.setSearchData', searchData );
         });
     });
 
-    channel.subscribe( 'schools.setSearchData', function ( data ) {
+    channel.subscribe( 'schools.setSearchData', function( data ) {
         searchData = data;
 
-        $("#school-search").typeahead({
-            source: function () {
+        $('#school-search').typeahead({
+            source: function() {
                 return _.pluck( data, 'nomeEscola' );
             }
         });
     });
 
-    channel.subscribe( 'schools.getStatistics', function ( data ) {
-        getStatistics( data.url, function ( statistics ) {
+    channel.subscribe( 'schools.getStatistics', function( data ) {
+        getStatistics( data.url, function( statistics ) {
             channel.publish( 'schools.setStatistics', statistics );
         });
     });
 
-    channel.subscribe( 'schools.setStatistics', function ( data ) {
+    channel.subscribe( 'schools.setStatistics', function( data ) {
         var collapse6 = {};
         collapse6.infos = [];
         var collapse7 = {};
@@ -171,21 +149,21 @@ define(['postal', 'transparency', 'bootstrap'], function ( postal ) {
             }
         };
 
-        $.each(data, function( key, value ) {
+        $.each( data, function( key, value ) {
             if ( i < 13 ) {
-                collapse6.infos.push(value);
+                collapse6.infos.push( value );
             }
             else if ( i >= 13 && i < 15) {
-                collapse7.infos.push(value);
+                collapse7.infos.push( value );
             }
             else if ( i >= 15 && i < 29) {
-                collapse8.infos.push(value);
+                collapse8.infos.push( value );
             }
             else {
-                collapse9.infos.push(value);
+                collapse9.infos.push( value );
             }
 
-            i++
+            i++;
         });
 
         $('#collapse-6').render( collapse6, directives );
@@ -195,18 +173,18 @@ define(['postal', 'transparency', 'bootstrap'], function ( postal ) {
     });
 
     return {
-        setInfos: function ( url, data ) {
+        setInfos: function( url, data ) {
             channel.publish( 'schools.getInfos', { url: url, data: data } );
         },
-        setSearchData: function ( url ) {
+        setSearchData: function( url ) {
             channel.publish( 'schools.getSearchData', { url: url } );
         },
-        setStatistics: function ( url ) {
+        setStatistics: function( url ) {
             channel.publish( 'schools.getStatistics', { url: url } );
         },
         getSearchData: function() {
             return searchData;
         }
-    }
+    };
 
 });

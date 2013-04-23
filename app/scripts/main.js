@@ -24,6 +24,6 @@ require.config({
     }
 });
 
-require(['app', 'bootstrap'], function( app ) {
+require( ['app'], function() {
 
 });
