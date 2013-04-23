@@ -189,17 +189,17 @@ module.exports = function (grunt) {
             }
         },
         replace: {
-          dist: {
-            options: {
-              variables: {
-                'UA-XXXXX-X': 'UA-40164918-1'
-              }
-            },
-            files: [{
-                src: ['<%= yeoman.dist %>/index.html'],
-                dest: '<%= yeoman.dist %>/index.html'
-            }]
-          }
+            dist: {
+                options: {
+                    variables: {
+                        'UA-XXXXX-X': 'UA-40164918-1'
+                    }
+                },
+                files: [{
+                    src: ['<%= yeoman.dist %>/index.html'],
+                    dest: '<%= yeoman.dist %>/index.html'
+                }]
+            }
         }
     });
 
