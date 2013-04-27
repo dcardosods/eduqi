@@ -211,6 +211,7 @@ module.exports = function (grunt) {
         }
 
         grunt.task.run([
+            'livereload-start',
             'connect:livereload',
             'open',
             'watch'
