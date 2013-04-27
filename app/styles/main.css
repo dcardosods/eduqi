@@ -23,7 +23,7 @@ input.height-40 {
 td.no-border {
     border: none;
 }
-td.text-center {
+td.text-center, th.text-center {
     text-align: center;
 }
 

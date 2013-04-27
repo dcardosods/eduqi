@@ -123,8 +123,9 @@ define(['postal', 'transparency', 'bootstrap'], function( postal ) {
         var collapse9 = {};
         collapse9.infos = [];
         var i = 0;
+        var directives = [];
 
-        var directives = {
+        directives[0] = {
             infos: {
                 bom: {
                     text: function() {
@@ -149,6 +150,21 @@ define(['postal', 'transparency', 'bootstrap'], function( postal ) {
             }
         };
 
+        directives[1] = {
+            infos: {
+                sim: {
+                    text: function() {
+                        return this.bom + ' %';
+                    }
+                },
+                nao: {
+                    text: function() {
+                        return ( Math.floor( (this.regular + this.inexistente) * 100 ) / 100 ) + ' %';
+                    }
+                }
+            }
+        };
+
         $.each( data, function( key, value ) {
             if ( i < 13 ) {
                 collapse6.infos.push( value );
@@ -166,10 +182,10 @@ define(['postal', 'transparency', 'bootstrap'], function( postal ) {
             i++;
         });
 
-        $('#collapse-6').render( collapse6, directives );
-        // $('#collapse-7').render( collapse7, directives );
-        // $('#collapse-8').render( collapse8, directives );
-        $('#collapse-9').render( collapse9, directives );
+        $('#collapse-6').render( collapse6, directives[0] );
+        $('#collapse-7').render( collapse7, directives[1] );
+        $('#collapse-8').render( collapse8, directives[1] );
+        $('#collapse-9').render( collapse9, directives[0] );
     });
 
     return {
