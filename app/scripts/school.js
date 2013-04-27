@@ -56,6 +56,28 @@ define(['postal', 'transparency', 'bootstrap'], function( postal ) {
         collapse4.infos = [];
         var i = 0;
 
+        var directives = {
+            infos: {
+                answer: {
+                    html: function() {
+                        var answer = this.answer;
+                        var cssClass = '';
+                        if ( /bom/i.test( answer ) ) {
+                            cssClass = ' label-success';
+                        }
+                        if ( /regular/i.test( answer ) ) {
+                            cssClass = ' label-warning';
+                        }
+                        else if ( /ruim/i.test( answer ) ) {
+                            cssClass = ' label-important';
+                        }
+
+                        return '<span class="label' + cssClass + '" data-bind="answer">' + answer + '</span>';
+                    }
+                }
+            }
+        };
+
         $.each( data, function( key, value ) {
             if ( i < 13 ) {
                 collapse1.infos.push({
@@ -85,10 +107,10 @@ define(['postal', 'transparency', 'bootstrap'], function( postal ) {
             i++;
         });
 
-        $('#collapse-1').render( collapse1, {} );
-        $('#collapse-2').render( collapse2, {} );
-        $('#collapse-3').render( collapse3, {} );
-        $('#collapse-4').render( collapse4, {} );
+        $('#collapse-1').render( collapse1, directives );
+        $('#collapse-2').render( collapse2, directives );
+        $('#collapse-3').render( collapse3, directives );
+        $('#collapse-4').render( collapse4, directives );
     });
 
     channel.subscribe( 'schools.getSearchData', function( data ) {
