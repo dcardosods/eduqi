@@ -55,8 +55,9 @@ define(['postal', 'transparency', 'bootstrap'], function( postal ) {
         var collapse4 = {};
         collapse4.infos = [];
         var i = 0;
+        var directives = [];
 
-        var directives = {
+        directives[0] = {
             infos: {
                 answer: {
                     html: function() {
@@ -65,11 +66,32 @@ define(['postal', 'transparency', 'bootstrap'], function( postal ) {
                         if ( /bom/i.test( answer ) ) {
                             cssClass = ' label-success';
                         }
-                        if ( /regular/i.test( answer ) ) {
+                        else if ( /regular/i.test( answer ) ) {
                             cssClass = ' label-warning';
                         }
                         else if ( /ruim/i.test( answer ) ) {
                             cssClass = ' label-important';
+                        }
+
+                        return '<span class="label' + cssClass + '" data-bind="answer">' + answer + '</span>';
+                    }
+                }
+            }
+        };
+
+        directives[1] = {
+            infos: {
+                answer: {
+                    html: function() {
+                        var answer = this.answer;
+                        var cssClass = '';
+                        if ( /bom/i.test( answer ) ) {
+                            cssClass = ' label-success';
+                            answer = 'SIM';
+                        }
+                        else if ( /regular|inexistente/i.test( answer ) ) {
+                            cssClass = ' label-important';
+                            answer = 'NÃO';
                         }
 
                         return '<span class="label' + cssClass + '" data-bind="answer">' + answer + '</span>';
@@ -107,10 +129,10 @@ define(['postal', 'transparency', 'bootstrap'], function( postal ) {
             i++;
         });
 
-        $('#collapse-1').render( collapse1, directives );
-        $('#collapse-2').render( collapse2, directives );
-        $('#collapse-3').render( collapse3, directives );
-        $('#collapse-4').render( collapse4, directives );
+        $('#collapse-1').render( collapse1, directives[0] );
+        $('#collapse-2').render( collapse2, directives[1] );
+        $('#collapse-3').render( collapse3, directives[1] );
+        $('#collapse-4').render( collapse4, directives[0] );
     });
 
     channel.subscribe( 'schools.getSearchData', function( data ) {
