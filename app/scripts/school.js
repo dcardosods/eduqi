@@ -133,7 +133,7 @@ define(['postal', 'transparency', 'bootstrap'], function( postal ) {
                 },
                 regular: {
                     text: function() {
-                        return this.ruim + ' %';
+                        return this.regular + ' %';
                     }
                 },
                 ruim: {
