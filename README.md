@@ -6,10 +6,13 @@ O EduQI é um portal que tem por objetivo disponibilizar dados estatísticos ref
 do brasil.
 
 O EduQI obtém dados da Prova Brasil e faz uma média das condições de infra-estrutura, segurança e recursos de auxílio 
-ao ensino das 1000 escolas com melhor desempenho na Prova Brasil. Com essa média é possível analisar e comparar as condições de uma 
-escola escolhida através da busca do site com a média das escolas com as melhores classificações.
+ao ensino das 1000 escolas com melhor desempenho na prova, no ano de 2011. Com essa média é possível analisar e comparar as condições de uma escola escolhida através da busca do site com a média das escolas com as melhores classificações.
 
 O objetivo desta comparação é tentar escolher algumas prioridades para investimento nas escolas comparadas. 
+
+### Origem dos dados
+
+Os dados são obtidos através de requisições à API [eduqiservice](https://github.com/samuelyuri/eduqiservice).
 
 ## Instruções
 
