@@ -25,22 +25,30 @@ Os dados são obtidos através de requisições à API [eduqiservice](https://gi
 ### Como rodar localmente o projeto
 
 1. Instale [Git](http://git-scm.com/downloads) e [Node.js](http://nodejs.org/download/), se ainda não estão instalados.
+
 2. Instale o [Bower](http://bower.io/) e o [Grunt-CLI](http://gruntjs.com/) globalmente, se ainda não estão instalados.
-    ```
-    npm install -g bower grunt-cli
-    ```
+```bash
+npm install -g bower grunt-cli
+```
+
 3. Faça o clone.
-    ```bash
-    git clone git@github.com:<your-github-username>/eduqi.git
-    ```
+```bash
+git clone git@github.com:<your-github-username>/eduqi.git
+```
+
 4. Entre no diretório.
-    ```
-    cd eduqi
-    ```
+```bash
+cd eduqi
+```
+
 5. Instale as dependências.
-    ```
-    ǹpm install && bower install
-    ```
+```bash
+ǹpm install && bower install
+```
+
 6. Rode o projeto localmente
-    ```
-    grunt server
+```bash
+grunt server
+```
+
+O EduQI estará rodando em `http://localhost:9000`.
