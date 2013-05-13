@@ -15,9 +15,6 @@ require.config({
         bootstrap: {
             deps: ['jquery']
         },
-        highcharts: {
-            deps: ['jquery']
-        },
         underscore: {
             exports: '_'
         }
