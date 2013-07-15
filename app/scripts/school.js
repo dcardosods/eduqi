@@ -1,5 +1,5 @@
 /*global define, $, _ */
-define(['postal', 'transparency', 'bootstrap'], function( postal ) {
+define(['storage', 'postal', 'transparency', 'bootstrap'], function( storage, postal ) {
     'use strict';
 
     var channel = postal.channel();
@@ -152,9 +152,17 @@ define(['postal', 'transparency', 'bootstrap'], function( postal ) {
     });
 
     channel.subscribe( 'schools.getStatistics', function( data ) {
-        getStatistics( data.url, function( statistics ) {
-            channel.publish( 'schools.setStatistics', statistics );
-        });
+        var stored = storage.local( 'schools.statistics' );
+
+        if ( stored ) {
+            channel.publish( 'schools.setStatistics', stored );
+        }
+        else {
+            getStatistics( data.url, function( statistics ) {
+                channel.publish( 'schools.setStatistics', statistics );
+                storage.local( 'schools.statistics', statistics );
+            });
+        }
     });
 
     channel.subscribe( 'schools.setStatistics', function( data ) {
