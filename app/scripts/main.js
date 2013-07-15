@@ -5,7 +5,6 @@ require.config({
         underscore: '../components/underscore/underscore',
         postal: '../components/postal.js/lib/postal',
         bootstrap: 'vendor/bootstrap',
-        highcharts: 'vendor/highcharts',
         async: 'vendor/async'
     },
     shim: {
