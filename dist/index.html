@@ -1,15 +1,16 @@
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if lt IE 7]>      <html lang="pt-br" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="pt-br" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="pt-br" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="pt-br" class="no-js"> <!--<![endif]-->
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title></title>
-        <meta name="description" content="">
+        <title>Eduqi - Educação é questão de investimento</title>
+        <meta name="description" content="O EduQI é um portal que tem por objetivo disponibilizar dados estatísticos referentes a infra-estrutura das escolas do Brasil.">
         <meta name="viewport" content="width=device-width">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link rel="shortcut icon" href="favicon.ico">
         <link rel="stylesheet" href="styles/vendor/bootstrap.css">
         <link rel="stylesheet" href="styles/main.css">
         <script src="scripts/vendor/modernizr.js"></script>
@@ -83,8 +84,7 @@
                                             <tr>
                                                 <td class="no-border" data-bind="question">
                                                 </td>
-                                                <td class="no-border text-center">
-                                                    <span class="label" data-bind="answer"></span>
+                                                <td class="no-border text-center" data-bind="answer">
                                                 </td>
                                             </tr>
                                         </table>
@@ -104,8 +104,7 @@
                                             <tr>
                                                 <td class="no-border" data-bind="question">
                                                 </td>
-                                                <td class="no-border text-center">
-                                                    <span class="label" data-bind="answer"></span>
+                                                <td class="no-border text-center" data-bind="answer">
                                                 </td>
                                             </tr>
                                         </table>
@@ -125,8 +124,7 @@
                                             <tr>
                                                 <td class="no-border" data-bind="question">
                                                 </td>
-                                                <td class="no-border text-center">
-                                                    <span class="label" data-bind="answer"></span>
+                                                <td class="no-border text-center" data-bind="answer">
                                                 </td>
                                             </tr>
                                         </table>
@@ -146,8 +144,7 @@
                                             <tr>
                                                 <td class="no-border" data-bind="question">
                                                 </td>
-                                                <td class="no-border text-center">
-                                                    <span class="label" data-bind="answer"></span>
+                                                <td class="no-border text-center" data-bind="answer">
                                                 </td>
                                             </tr>
                                         </table>
@@ -204,18 +201,18 @@
                                             </thead>
                                             <tbody data-bind="infos">
                                                 <tr>
-                                                    <td class="no-border" data-bind="question">
+                                                    <td data-bind="question">
                                                     </td>
-                                                    <td class="no-border text-center">
-                                                        <span class="label" data-bind="bom"></span>
+                                                    <td class="text-center">
+                                                        <span class="label label-success" data-bind="bom"></span>
                                                     </td>
-                                                    <td class="no-border text-center">
-                                                        <span class="label" data-bind="regular"></span>
+                                                    <td class="text-center">
+                                                        <span class="label label-warning" data-bind="regular"></span>
                                                     </td>
-                                                    <td class="no-border text-center">
-                                                        <span class="label" data-bind="ruim"></span>
+                                                    <td class="text-center">
+                                                        <span class="label label-important" data-bind="ruim"></span>
                                                     </td>
-                                                    <td class="no-border text-center">
+                                                    <td class="text-center">
                                                         <span class="label" data-bind="inexistente"></span>
                                                     </td>
                                                 </tr>
@@ -227,7 +224,7 @@
 
                             <div class="accordion-group">
                                 <div class="accordion-heading">
-                                    <a class="text-center accordion-toggle table-title" data-toggle="collapse" data-parent="#collapse-5" href="#">
+                                    <a class="text-center accordion-toggle table-title" data-toggle="collapse" data-parent="#collapse-5" href="#collapse-7">
                                         Aspectos relacionados às salas de aula
                                     </a>
                                 </div>
@@ -240,34 +237,22 @@
                                                         Questão
                                                     </th>
                                                     <th class="no-border text-center">
-                                                        Bom
+                                                        Sim
                                                     </th>
                                                     <th class="no-border text-center">
-                                                        Regular
-                                                    </th>
-                                                    <th class="no-border text-center">
-                                                        Ruim
-                                                    </th>
-                                                    <th class="no-border text-center">
-                                                        Inexistente
+                                                        Não
                                                     </th>
                                                 </tr>
                                             </thead>
                                             <tbody data-bind="infos">
                                                 <tr>
-                                                    <td class="no-border" data-bind="question">
+                                                    <td data-bind="question">
                                                     </td>
-                                                    <td class="no-border text-center">
-                                                        <span class="label" data-bind="bom"></span>
+                                                    <td class="text-center">
+                                                        <span class="label label-success" data-bind="sim"></span>
                                                     </td>
-                                                    <td class="no-border text-center">
-                                                        <span class="label" data-bind="regular"></span>
-                                                    </td>
-                                                    <td class="no-border text-center">
-                                                        <span class="label" data-bind="ruim"></span>
-                                                    </td>
-                                                    <td class="no-border text-center">
-                                                        <span class="label" data-bind="inexistente"></span>
+                                                    <td class="text-center">
+                                                        <span class="label label-important" data-bind="nao"></span>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -278,7 +263,7 @@
 
                             <div class="accordion-group">
                                 <div class="accordion-heading">
-                                    <a class="text-center accordion-toggle table-title" data-toggle="collapse" data-parent="#collapse-5" href="#">
+                                    <a class="text-center accordion-toggle table-title" data-toggle="collapse" data-parent="#collapse-5" href="#collapse-8">
                                         Aspectos relacionados à segurança da escola e dos alunos
                                     </a>
                                 </div>
@@ -291,34 +276,22 @@
                                                         Questão
                                                     </th>
                                                     <th class="no-border text-center">
-                                                        Bom
+                                                        Sim
                                                     </th>
                                                     <th class="no-border text-center">
-                                                        Regular
-                                                    </th>
-                                                    <th class="no-border text-center">
-                                                        Ruim
-                                                    </th>
-                                                    <th class="no-border text-center">
-                                                        Inexistente
+                                                        Não
                                                     </th>
                                                 </tr>
                                             </thead>
                                             <tbody data-bind="infos">
                                                 <tr>
-                                                    <td class="no-border" data-bind="question">
+                                                    <td data-bind="question">
                                                     </td>
-                                                    <td class="no-border text-center">
-                                                        <span class="label" data-bind="bom"></span>
+                                                    <td class="text-center">
+                                                        <span class="label label-success" data-bind="sim"></span>
                                                     </td>
-                                                    <td class="no-border text-center">
-                                                        <span class="label" data-bind="regular"></span>
-                                                    </td>
-                                                    <td class="no-border text-center">
-                                                        <span class="label" data-bind="ruim"></span>
-                                                    </td>
-                                                    <td class="no-border text-center">
-                                                        <span class="label" data-bind="inexistente"></span>
+                                                    <td class="text-center">
+                                                        <span class="label label-important" data-bind="nao"></span>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -357,18 +330,18 @@
                                             </thead>
                                             <tbody data-bind="infos">
                                                 <tr>
-                                                    <td class="no-border" data-bind="question">
+                                                    <td data-bind="question">
                                                     </td>
-                                                    <td class="no-border text-center">
-                                                        <span class="label" data-bind="bom"></span>
+                                                    <td class="text-center">
+                                                        <span class="label label-success" data-bind="bom"></span>
                                                     </td>
-                                                    <td class="no-border text-center">
-                                                        <span class="label" data-bind="regular"></span>
+                                                    <td class="text-center">
+                                                        <span class="label label-warning" data-bind="regular"></span>
                                                     </td>
-                                                    <td class="no-border text-center">
-                                                        <span class="label" data-bind="ruim"></span>
+                                                    <td class="text-center">
+                                                        <span class="label label-important" data-bind="ruim"></span>
                                                     </td>
-                                                    <td class="no-border text-center">
+                                                    <td class="text-center">
                                                         <span class="label" data-bind="inexistente"></span>
                                                     </td>
                                                 </tr>
@@ -401,9 +374,6 @@
             </div>
 
         </div>
-        <!--[if lt IE 7]>
-            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-        <![endif]-->
 
         <script>
             var _gaq=[['_setAccount','UA-40164918-1'],['_trackPageview']];
@@ -413,5 +383,5 @@
         </script>
 
         <script data-main="scripts/main" src="components/requirejs/require.js"></script>
-</body>
+    </body>
 </html>
