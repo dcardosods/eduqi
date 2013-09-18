@@ -1,9 +1,9 @@
 require.config({
     paths: {
-        jquery: '../components/jquery/jquery',
-        transparency: '../components/transparency/dist/transparency',
-        underscore: '../components/underscore/underscore',
-        postal: '../components/postal.js/lib/postal',
+        jquery: '../bower_components/jquery/jquery',
+        transparency: '../bower_components/transparency/dist/transparency',
+        underscore: '../bower_components/underscore/underscore',
+        postal: '../bower_components/postal.js/lib/postal',
         bootstrap: 'vendor/bootstrap',
         async: 'vendor/async'
     },
