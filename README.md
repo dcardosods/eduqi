@@ -52,3 +52,7 @@ grunt server
 ```
 
 O EduQI estará rodando em `http://localhost:9000`.
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/dcardosods/eduqi/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
