@@ -3,10 +3,10 @@ define(['maps', 'school', 'transparency'], function( maps, school ) {
     'use strict';
 
     var conf = {
-        cachesearch: 'http://ec2-54-232-212-129.sa-east-1.compute.amazonaws.com:8080/eduqi-server/cachesearch',
-        probservlet: 'http://ec2-54-232-212-129.sa-east-1.compute.amazonaws.com:8080/eduqi-server/probservlet',
-        questservlet: 'http://ec2-54-232-212-129.sa-east-1.compute.amazonaws.com:8080/eduqi-server/questservlet',
-        cepprovider: 'http://ec2-54-232-212-129.sa-east-1.compute.amazonaws.com:8080/eduqi-server/cepprovider',
+        cachesearch: 'http://eduqi.samueldev.com/eduqi-server/cachesearch',
+        probservlet: 'http://eduqi.samueldev.com/eduqi-server/probservlet',
+        questservlet: 'http://eduqi.samueldev.com/eduqi-server/questservlet',
+        cepprovider: 'http://eduqi.samueldev.com/eduqi-server/cepprovider',
         geocode: 'http://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/find'
     };
 
