@@ -1,6 +1,6 @@
 {
   "name": "eduqi",
-  "version": "0.5.1",
+  "version": "1.0.0",
   "dependencies": {},
   "devDependencies": {
     "grunt": "~0.4.0",
