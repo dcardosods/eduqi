@@ -1,6 +1,6 @@
 {
   "name": "eduqi",
-  "version": "0.5.1",
+  "version": "1.1.0",
   "dependencies": {
     "requirejs": "~2.1.4",
     "modernizr": "~2.6.2",
