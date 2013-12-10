@@ -60,6 +60,22 @@ td.text-center, th.text-center {
     border: none;
 }
 
+/* Bootstrap extends */
+.tooltip-inner.tooltip-danger {
+    color: #b94a48;
+    background-color: #f2dede;
+}
+.tooltip-inner.tooltip-success {
+    color: #468847;
+    background-color: #dff0d8;
+}
+.tooltip.bottom .tooltip-arrow.tooltip-danger {
+    border-bottom-color: #f2dede;
+}
+.tooltip.bottom .tooltip-arrow.tooltip-success {
+    border-bottom-color: #dff0d8;
+}
+
 @media (max-width: 777px) {
     .input-append.span10.offset1 {
         padding: 0 5%;

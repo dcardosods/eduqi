@@ -3,6 +3,8 @@ define(['storage', 'postal', 'transparency', 'bootstrap'], function( storage, po
     'use strict';
 
     var channel = postal.channel();
+    var searchData = [];
+    var $schoolSearchInput = $('#school-search');
 
     var getInfos = function( url, id, callback ) {
         $.ajax({
@@ -36,8 +38,6 @@ define(['storage', 'postal', 'transparency', 'bootstrap'], function( storage, po
             }
         });
     };
-
-    var searchData = [];
 
     channel.subscribe( 'schools.getInfos', function( data ) {
         getInfos( data.url, data.data[0].idEscola, function( infos ) {
@@ -136,6 +136,13 @@ define(['storage', 'postal', 'transparency', 'bootstrap'], function( storage, po
     });
 
     channel.subscribe( 'schools.getSearchData', function( data ) {
+        $schoolSearchInput.tooltip({
+            title: 'Carregando as escolas... Aguarde!',
+            placement: 'bottom',
+            trigger: 'manual',
+            template: '<div class="tooltip"><div class="tooltip-arrow tooltip-danger"></div><div class="tooltip-inner tooltip-danger"></div></div>'
+        }).tooltip('show');
+
         getSearchData( data.url, function( searchData ) {
             channel.publish( 'schools.setSearchData', searchData );
         });
@@ -144,10 +151,27 @@ define(['storage', 'postal', 'transparency', 'bootstrap'], function( storage, po
     channel.subscribe( 'schools.setSearchData', function( data ) {
         searchData = data;
 
-        $('#school-search').typeahead({
+        $schoolSearchInput.typeahead({
             source: function() {
                 return _.pluck( data, 'nomeEscola' );
+            },
+            updater: function (item) {
+                window.setTimeout($.proxy(function () {
+                    this.$element.parents('form').submit();
+                }, this), 1);
+                return item;
             }
+        });
+
+        $schoolSearchInput.attr('disabled', false).tooltip('destroy').tooltip({
+            title: 'Pronto! Já pode iniciar a busca.',
+            placement: 'bottom',
+            trigger: 'manual',
+            template: '<div class="tooltip"><div class="tooltip-arrow tooltip-success"></div><div class="tooltip-inner tooltip-success"></div></div>'
+        }).tooltip('show');
+
+        $schoolSearchInput.on('focus', function () {
+            $(this).tooltip('destroy');
         });
     });
 
