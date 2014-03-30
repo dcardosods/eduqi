@@ -1,5 +1,5 @@
 /*global define, $, _ */
-define(['storage', 'postal', 'transparency', 'bootstrap'], function( storage, postal ) {
+define(['storage', 'postal', 'transparency', 'bootstrap', 'typeahead'], function( storage, postal ) {
     'use strict';
 
     var channel = postal.channel();
