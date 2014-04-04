@@ -2,8 +2,9 @@ body {
     background: #C5D9D3;
 }
 
-.hero-unit {
-    background: #F2E205 url('../images/beta.png') no-repeat 0 36px;
+.jumbotron {
+    padding: 51px 40px 20px;
+    background: #F2E205 url('../images/beta.png') no-repeat 0 51px;
 }
 
 /* Form */
