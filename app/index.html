@@ -86,16 +86,12 @@
         </nav>
 
         <div class="container">
-
             <div class="row">
-
-                <div class="col-md-6 background-white">
-
+                <div class="col-md-6 section intro">
                     <div class="jumbotron">
                         <h1>EduQI</h1>
                         <p>Educação é questão de investimento</p>
                     </div>
-
                     <form id="search">
                         <div class="input-group">
                             <input type="text" autocomplete="off" id="school-search" class="form-control" placeholder="Nome da escola" disabled>
@@ -106,311 +102,286 @@
                             </span>
                         </div>
                     </form>
-
-                    <div class="col-md-12">
-
-                        <h3 id="school-name" class="col-md-9 col-md-offset-1"></h3>
-
-                        <div class="panel col-md-10 text-center hide" id="collapse">
-
+                    <div class="clearfix">
+                        <h3 id="school-name"></h3>
+                        <div class="panel text-center hide" id="collapse">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <a class="text-center table-title" data-toggle="collapse" data-parent="#collapse" href="#collapse-1">
+                                    <a class="text-center" data-toggle="collapse" data-parent="#collapse" href="#collapse-1">
                                         Conservação dos itens e equipamentos do prédio
                                     </a>
                                 </div>
                                 <div id="collapse-1" class="panel-collapse collapse in">
                                     <div class="panel-inner">
-                                        <table class="table table-hover no-margin" data-bind="infos">
+                                        <table class="table table-hover" data-bind="infos">
                                             <tr>
-                                                <td class="no-border" data-bind="question">
+                                                <td data-bind="question">
                                                 </td>
-                                                <td class="no-border text-center" data-bind="answer">
+                                                <td class=" text-center" data-bind="answer">
                                                 </td>
                                             </tr>
                                         </table>
                                     </div>
                                 </div>
                             </div>
-
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <a class="text-center table-title" data-toggle="collapse" data-parent="#collapse" href="#collapse-2">
+                                    <a class="text-center" data-toggle="collapse" data-parent="#collapse" href="#collapse-2">
                                         Aspectos relacionados às salas de aula
                                     </a>
                                 </div>
                                 <div id="collapse-2" class="panel-collapse collapse">
                                     <div class="panel-inner">
-                                        <table class="table table-hover no-margin" data-bind="infos">
+                                        <table class="table table-hover" data-bind="infos">
                                             <tr>
-                                                <td class="no-border" data-bind="question">
+                                                <td data-bind="question">
                                                 </td>
-                                                <td class="no-border text-center" data-bind="answer">
+                                                <td class=" text-center" data-bind="answer">
                                                 </td>
                                             </tr>
                                         </table>
                                     </div>
                                 </div>
                             </div>
-
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <a class="text-center table-title" data-toggle="collapse" data-parent="#collapse" href="#collapse-3">
+                                    <a class="text-center" data-toggle="collapse" data-parent="#collapse" href="#collapse-3">
                                         Aspectos relacionados à segurança da escola e dos alunos
                                     </a>
                                 </div>
                                 <div id="collapse-3" class="panel-collapse collapse">
                                     <div class="panel-inner">
-                                        <table class="table table-hover no-margin" data-bind="infos">
+                                        <table class="table table-hover" data-bind="infos">
                                             <tr>
-                                                <td class="no-border" data-bind="question">
+                                                <td data-bind="question">
                                                 </td>
-                                                <td class="no-border text-center" data-bind="answer">
+                                                <td class=" text-center" data-bind="answer">
                                                 </td>
                                             </tr>
                                         </table>
                                     </div>
                                 </div>
                             </div>
-
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <a class="text-center table-title" data-toggle="collapse" data-parent="#collapse" href="#collapse-4">
+                                    <a class="text-center" data-toggle="collapse" data-parent="#collapse" href="#collapse-4">
                                         Recursos da escola e suas condições de uso
                                     </a>
                                 </div>
                                 <div id="collapse-4" class="panel-collapse collapse">
                                     <div class="panel-inner">
-                                        <table class="table table-hover no-margin" data-bind="infos">
+                                        <table class="table table-hover" data-bind="infos">
                                             <tr>
-                                                <td class="no-border" data-bind="question">
+                                                <td data-bind="question">
                                                 </td>
-                                                <td class="no-border text-center" data-bind="answer">
+                                                <td class=" text-center" data-bind="answer">
                                                 </td>
                                             </tr>
                                         </table>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
-
-                        <div id="school-hint" class="well col-md-10">
+                        <div class="well col-md-12">
                             Conheça mais sobre a infra-estrutura das escolas, se elas são seguras, e quais recursos disponibilizam para os alunos.
                         </div>
-
                     </div>
                 </div>
 
                 <div id="map-canvas" class="col-md-6"></div>
 
-                <div class="col-md-6  background-white pull-right">
-
-                    <div class="col-md-11 col-md-offset-1">
-
-                        <h3>Escolas com melhor o desempenho na Prova Brasil 2011</h3>
-
-                        <div class="panel col-md-10 text-center hide" id="collapse-5">
-
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <a class="text-center table-title" data-toggle="collapse" data-parent="#collapse-5" href="#collapse-6">
-                                        Conservação dos itens e equipamentos do prédio
-                                    </a>
-                                </div>
-                                <div id="collapse-6" class="panel-collapse collapse in">
-                                    <div class="panel-inner">
-                                        <table class="table table-hover no-margin">
-                                            <thead>
-                                                <tr>
-                                                    <th class="no-border">
-                                                        Questão
-                                                    </th>
-                                                    <th class="no-border text-center">
-                                                        Bom
-                                                    </th>
-                                                    <th class="no-border text-center">
-                                                        Regular
-                                                    </th>
-                                                    <th class="no-border text-center">
-                                                        Ruim
-                                                    </th>
-                                                    <th class="no-border text-center">
-                                                        Inexistente
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                            <tbody data-bind="infos">
-                                                <tr>
-                                                    <td data-bind="question">
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <span class="label label-default label-success" data-bind="bom"></span>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <span class="label label-default label-warning" data-bind="regular"></span>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <span class="label label-default label-danger" data-bind="ruim"></span>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <span class="label label-default" data-bind="inexistente"></span>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
+                <div class="col-md-6 pull-right section">
+                    <h3>Escolas com melhor o desempenho na Prova Brasil 2011</h3>
+                    <div class="panel text-center hide" id="collapse-5">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <a class="text-center" data-toggle="collapse" data-parent="#collapse-5" href="#collapse-6">
+                                    Conservação dos itens e equipamentos do prédio
+                                </a>
+                            </div>
+                            <div id="collapse-6" class="panel-collapse collapse in">
+                                <div class="panel-inner">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    Questão
+                                                </th>
+                                                <th class=" text-center">
+                                                    Bom
+                                                </th>
+                                                <th class=" text-center">
+                                                    Regular
+                                                </th>
+                                                <th class=" text-center">
+                                                    Ruim
+                                                </th>
+                                                <th class=" text-center">
+                                                    Inexistente
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody data-bind="infos">
+                                            <tr>
+                                                <td data-bind="question">
+                                                </td>
+                                                <td class="text-center">
+                                                    <span class="label label-default label-success" data-bind="bom"></span>
+                                                </td>
+                                                <td class="text-center">
+                                                    <span class="label label-default label-warning" data-bind="regular"></span>
+                                                </td>
+                                                <td class="text-center">
+                                                    <span class="label label-default label-danger" data-bind="ruim"></span>
+                                                </td>
+                                                <td class="text-center">
+                                                    <span class="label label-default" data-bind="inexistente"></span>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
-
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <a class="text-center table-title" data-toggle="collapse" data-parent="#collapse-5" href="#collapse-7">
-                                        Aspectos relacionados às salas de aula
-                                    </a>
-                                </div>
-                                <div id="collapse-7" class="panel-collapse collapse">
-                                    <div class="panel-inner">
-                                        <table class="table table-hover no-margin">
-                                            <thead>
-                                                <tr>
-                                                    <th class="no-border">
-                                                        Questão
-                                                    </th>
-                                                    <th class="no-border text-center">
-                                                        Sim
-                                                    </th>
-                                                    <th class="no-border text-center">
-                                                        Não
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                            <tbody data-bind="infos">
-                                                <tr>
-                                                    <td data-bind="question">
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <span class="label label-default label-success" data-bind="sim"></span>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <span class="label label-default label-danger" data-bind="nao"></span>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <a class="text-center table-title" data-toggle="collapse" data-parent="#collapse-5" href="#collapse-8">
-                                        Aspectos relacionados à segurança da escola e dos alunos
-                                    </a>
-                                </div>
-                                <div id="collapse-8" class="panel-collapse collapse">
-                                    <div class="panel-inner">
-                                        <table class="table table-hover no-margin">
-                                            <thead>
-                                                <tr>
-                                                    <th class="no-border">
-                                                        Questão
-                                                    </th>
-                                                    <th class="no-border text-center">
-                                                        Sim
-                                                    </th>
-                                                    <th class="no-border text-center">
-                                                        Não
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                            <tbody data-bind="infos">
-                                                <tr>
-                                                    <td data-bind="question">
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <span class="label label-default label-success" data-bind="sim"></span>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <span class="label label-default label-danger" data-bind="nao"></span>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <a class="text-center table-title" data-toggle="collapse" data-parent="#collapse-5" href="#collapse-9">
-                                        Recursos da escola e suas condições de uso
-                                    </a>
-                                </div>
-                                <div id="collapse-9" class="panel-collapse collapse">
-                                    <div class="panel-inner">
-                                        <table class="table table-hover no-margin">
-                                            <thead>
-                                                <tr>
-                                                    <th class="no-border">
-                                                        Questão
-                                                    </th>
-                                                    <th class="no-border text-center">
-                                                        Bom
-                                                    </th>
-                                                    <th class="no-border text-center">
-                                                        Regular
-                                                    </th>
-                                                    <th class="no-border text-center">
-                                                        Ruim
-                                                    </th>
-                                                    <th class="no-border text-center">
-                                                        Inexistente
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                            <tbody data-bind="infos">
-                                                <tr>
-                                                    <td data-bind="question">
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <span class="label label-default label-success" data-bind="bom"></span>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <span class="label label-default label-warning" data-bind="regular"></span>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <span class="label label-default label-danger" data-bind="ruim"></span>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <span class="label label-default" data-bind="inexistente"></span>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
-
-                        <div class="well col-md-10">
-                            Conheça sobre a infra-estrutura, segurança, e os recursos das escolas com melhores média na Prova Brasil.
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <a class="text-center" data-toggle="collapse" data-parent="#collapse-5" href="#collapse-7">
+                                    Aspectos relacionados às salas de aula
+                                </a>
+                            </div>
+                            <div id="collapse-7" class="panel-collapse collapse">
+                                <div class="panel-inner">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    Questão
+                                                </th>
+                                                <th class=" text-center">
+                                                    Sim
+                                                </th>
+                                                <th class=" text-center">
+                                                    Não
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody data-bind="infos">
+                                            <tr>
+                                                <td data-bind="question">
+                                                </td>
+                                                <td class="text-center">
+                                                    <span class="label label-default label-success" data-bind="sim"></span>
+                                                </td>
+                                                <td class="text-center">
+                                                    <span class="label label-default label-danger" data-bind="nao"></span>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
-
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <a class="text-center" data-toggle="collapse" data-parent="#collapse-5" href="#collapse-8">
+                                    Aspectos relacionados à segurança da escola e dos alunos
+                                </a>
+                            </div>
+                            <div id="collapse-8" class="panel-collapse collapse">
+                                <div class="panel-inner">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    Questão
+                                                </th>
+                                                <th class=" text-center">
+                                                    Sim
+                                                </th>
+                                                <th class=" text-center">
+                                                    Não
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody data-bind="infos">
+                                            <tr>
+                                                <td data-bind="question">
+                                                </td>
+                                                <td class="text-center">
+                                                    <span class="label label-default label-success" data-bind="sim"></span>
+                                                </td>
+                                                <td class="text-center">
+                                                    <span class="label label-default label-danger" data-bind="nao"></span>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <a class="text-center" data-toggle="collapse" data-parent="#collapse-5" href="#collapse-9">
+                                    Recursos da escola e suas condições de uso
+                                </a>
+                            </div>
+                            <div id="collapse-9" class="panel-collapse collapse">
+                                <div class="panel-inner">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    Questão
+                                                </th>
+                                                <th class=" text-center">
+                                                    Bom
+                                                </th>
+                                                <th class=" text-center">
+                                                    Regular
+                                                </th>
+                                                <th class=" text-center">
+                                                    Ruim
+                                                </th>
+                                                <th class=" text-center">
+                                                    Inexistente
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody data-bind="infos">
+                                            <tr>
+                                                <td data-bind="question">
+                                                </td>
+                                                <td class="text-center">
+                                                    <span class="label label-default label-success" data-bind="bom"></span>
+                                                </td>
+                                                <td class="text-center">
+                                                    <span class="label label-default label-warning" data-bind="regular"></span>
+                                                </td>
+                                                <td class="text-center">
+                                                    <span class="label label-default label-danger" data-bind="ruim"></span>
+                                                </td>
+                                                <td class="text-center">
+                                                    <span class="label label-default" data-bind="inexistente"></span>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
+                    <div class="well">
+                        Conheça sobre a infra-estrutura, segurança, e os recursos das escolas com melhores média na Prova Brasil.
+                    </div>
                 </div>
-
             </div>
 
             <div class="row footer">
-
-                <div class="well pull-left">
+                <div class="well col-md-10 col-xs-12 pull-left">
                     Dúvidas, comentários ou sugestões? Envie um e-mail para
                     <a href="mailto:eduqi.contato@gmail.com">eduqi.contato@gmail.com</a>.
                 </div>
-                <div class="well pull-left">
+                <div class="well col-md-10 col-xs-12 pull-left">
                     Desenvolvido por
                     <a href="https://github.com/dcardosods">Daniel Cardoso</a> e <a href="https://github.com/samuelyuri">Samuel Zvir</a>.
                     Código disponível em
@@ -418,7 +389,6 @@
                 </div>
                 <img id="prova-brasil" src="http://4.bp.blogspot.com/-70QAC96vKpI/Tcg7N0alArI/AAAAAAAAA98/ddY1scxRHtU/s1600/provabrasil.JPG" alt="Prova Brasil 2011">
             </div>
-
         </div>
 
         <script>
