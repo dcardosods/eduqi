@@ -4,7 +4,8 @@ require.config({
         transparency: '../bower_components/transparency/dist/transparency',
         underscore: '../bower_components/underscore/underscore',
         postal: '../bower_components/postal.js/lib/postal',
-        bootstrap: 'vendor/bootstrap',
+        bootstrap: '../bower_components/bootstrap/dist/js/bootstrap',
+        typeahead: '../bower_components/bootstrap3-typeahead/bootstrap3-typeahead',
         async: 'vendor/async'
     },
     shim: {
@@ -12,6 +13,9 @@ require.config({
             deps: ['jquery']
         },
         bootstrap: {
+            deps: ['jquery']
+        },
+        typeahead: {
             deps: ['jquery']
         },
         underscore: {

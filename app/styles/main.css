@@ -2,29 +2,20 @@ body {
     background: #C5D9D3;
 }
 
-.hero-unit {
-    background: #F2E205 url('../images/beta.png') no-repeat 0 36px;
+.section {
+    background: #FFF;
+}
+.intro {
+    min-height: 520px;
+}
+.jumbotron {
+    padding: 51px 40px 20px;
+    background: #F2E205 url('../images/beta.png') no-repeat 0 51px;
 }
 
-/* Form */
-.form-search {
-    margin-bottom: 20px;
-}
-input.height-40 {
-    height: 40px
-}
-
-.table-title {
-    background: #70e0c9;
-    color: #fff;
-    font-weight: bold;
-    font-size: 16px;
-}
-td.no-border {
-    border: none;
-}
-td.text-center, th.text-center {
-    text-align: center;
+/* Maps */
+#map-canvas {
+    height: 520px
 }
 
 /* Footer */
@@ -34,30 +25,10 @@ td.text-center, th.text-center {
     text-align: right;
 }
 .footer .well {
-    width: 900px;
     text-align: left;
 }
 #prova-brasil {
     height: 100px;
-}
-
-/* Maps */
-#map-canvas {
-    height: 520px
-}
-
-/* Utils */
-.background-white {
-    background-color: #FFF;
-}
-.height-40 {
-    height: 40px
-}
-.no-margin {
-    margin: 0;
-}
-.no-border {
-    border: none;
 }
 
 /* Bootstrap extends */
@@ -74,21 +45,4 @@ td.text-center, th.text-center {
 }
 .tooltip.bottom .tooltip-arrow.tooltip-success {
     border-bottom-color: #dff0d8;
-}
-
-@media (max-width: 777px) {
-    .input-append.span10.offset1 {
-        padding: 0 5%;
-        width: 95%;
-    }
-    .search-query.span10.height-40 {
-        width: inherit;
-    }
-}
-
-@media (max-width: 980px) {
-    .footer .well {
-        width: 100%;
-        box-sizing: border-box;
-    }
 }

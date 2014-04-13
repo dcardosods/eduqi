@@ -1,5 +1,5 @@
 /*global define, $, _ */
-define(['storage', 'postal', 'transparency', 'bootstrap'], function( storage, postal ) {
+define(['storage', 'postal', 'transparency', 'bootstrap', 'typeahead'], function( storage, postal ) {
     'use strict';
 
     var channel = postal.channel();
@@ -70,7 +70,7 @@ define(['storage', 'postal', 'transparency', 'bootstrap'], function( storage, po
                             cssClass = ' label-warning';
                         }
                         else if ( /ruim/i.test( answer ) ) {
-                            cssClass = ' label-important';
+                            cssClass = ' label-danger';
                         }
 
                         return '<span class="label' + cssClass + '" data-bind="answer">' + answer + '</span>';
@@ -90,7 +90,7 @@ define(['storage', 'postal', 'transparency', 'bootstrap'], function( storage, po
                             answer = 'SIM';
                         }
                         else if ( /regular|inexistente/i.test( answer ) ) {
-                            cssClass = ' label-important';
+                            cssClass = ' label-danger';
                             answer = 'NÃO';
                         }
 
