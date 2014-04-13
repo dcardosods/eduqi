@@ -1,8 +1,7 @@
 /*global define, $, _ */
-define(['storage', 'postal', 'transparency', 'bootstrap', 'typeahead'], function( storage, postal ) {
+define(['storage', 'pubsub', 'transparency', 'bootstrap', 'typeahead', 'underscore'], function( storage ) {
     'use strict';
 
-    var channel = postal.channel();
     var searchData = [];
     var $schoolSearchInput = $('#school-search');
 
@@ -39,13 +38,13 @@ define(['storage', 'postal', 'transparency', 'bootstrap', 'typeahead'], function
         });
     };
 
-    channel.subscribe( 'schools.getInfos', function( data ) {
+    $.subscribe( 'schools.getInfos', function( e, data ) {
         getInfos( data.url, data.data[0].idEscola, function( infos ) {
-            channel.publish( 'schools.setInfos', infos );
+            $.publish( 'schools.setInfos', [ infos ] );
         });
     });
 
-    channel.subscribe( 'schools.setInfos', function( data ) {
+    $.subscribe( 'schools.setInfos', function( e, data ) {
         var collapse1 = {};
         collapse1.infos = [];
         var collapse2 = {};
@@ -135,7 +134,7 @@ define(['storage', 'postal', 'transparency', 'bootstrap', 'typeahead'], function
         $('#collapse-4').render( collapse4, directives[0] );
     });
 
-    channel.subscribe( 'schools.getSearchData', function( data ) {
+    $.subscribe( 'schools.getSearchData', function( e, data ) {
         $schoolSearchInput.tooltip({
             title: 'Carregando as escolas... Aguarde!',
             placement: 'bottom',
@@ -144,11 +143,11 @@ define(['storage', 'postal', 'transparency', 'bootstrap', 'typeahead'], function
         }).tooltip('show');
 
         getSearchData( data.url, function( searchData ) {
-            channel.publish( 'schools.setSearchData', searchData );
+            $.publish( 'schools.setSearchData', [ searchData ] );
         });
     });
 
-    channel.subscribe( 'schools.setSearchData', function( data ) {
+    $.subscribe( 'schools.setSearchData', function( e, data ) {
         searchData = data;
 
         $schoolSearchInput.typeahead({
@@ -175,21 +174,21 @@ define(['storage', 'postal', 'transparency', 'bootstrap', 'typeahead'], function
         });
     });
 
-    channel.subscribe( 'schools.getStatistics', function( data ) {
+    $.subscribe( 'schools.getStatistics', function( e, data ) {
         var stored = storage.local( 'schools.statistics' );
 
         if ( stored ) {
-            channel.publish( 'schools.setStatistics', stored );
+            $.publish( 'schools.setStatistics', [ stored ] );
         }
         else {
             getStatistics( data.url, function( statistics ) {
-                channel.publish( 'schools.setStatistics', statistics );
+                $.publish( 'schools.setStatistics', [ statistics ] );
                 storage.local( 'schools.statistics', statistics );
             });
         }
     });
 
-    channel.subscribe( 'schools.setStatistics', function( data ) {
+    $.subscribe( 'schools.setStatistics', function( e, data ) {
         var collapse6 = {};
         collapse6.infos = [];
         var collapse7 = {};
@@ -266,13 +265,13 @@ define(['storage', 'postal', 'transparency', 'bootstrap', 'typeahead'], function
 
     return {
         setInfos: function( url, data ) {
-            channel.publish( 'schools.getInfos', { url: url, data: data } );
+            $.publish( 'schools.getInfos', [ { url: url, data: data } ] );
         },
         setSearchData: function( url ) {
-            channel.publish( 'schools.getSearchData', { url: url } );
+            $.publish( 'schools.getSearchData', [ { url: url } ] );
         },
         setStatistics: function( url ) {
-            channel.publish( 'schools.getStatistics', { url: url } );
+            $.publish( 'schools.getStatistics', [ { url: url } ] );
         },
         getSearchData: function() {
             return searchData;

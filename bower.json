@@ -5,10 +5,10 @@
     "requirejs": "~2.1.4",
     "jquery": "~1.9.1",
     "transparency": "~0.9.13",
-    "postal.js": "git://github.com/postaljs/postal.js.git#~0.8.2",
     "underscore": "1.4.4",
     "bootstrap": "~3.1.1",
-    "bootstrap3-typeahead": "~3.0.3"
+    "bootstrap3-typeahead": "~3.0.3",
+    "jquery-tiny-pubsub": "cowboy/jquery-tiny-pubsub#~0.7.0"
   },
   "devDependencies": {}
 }

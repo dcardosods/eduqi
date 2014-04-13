@@ -3,7 +3,7 @@ require.config({
         jquery: '../bower_components/jquery/jquery',
         transparency: '../bower_components/transparency/dist/transparency',
         underscore: '../bower_components/underscore/underscore',
-        postal: '../bower_components/postal.js/lib/postal',
+        pubsub: '../bower_components/jquery-tiny-pubsub/src/tiny-pubsub',
         bootstrap: '../bower_components/bootstrap/dist/js/bootstrap',
         typeahead: '../bower_components/bootstrap3-typeahead/bootstrap3-typeahead',
         async: 'vendor/async'
@@ -20,6 +20,9 @@ require.config({
         },
         underscore: {
             exports: '_'
+        },
+        pubsub: {
+            deps: ['jquery']
         }
     }
 });
