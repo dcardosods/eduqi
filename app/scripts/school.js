@@ -70,7 +70,7 @@ define(['storage', 'postal', 'transparency', 'bootstrap', 'typeahead'], function
                             cssClass = ' label-warning';
                         }
                         else if ( /ruim/i.test( answer ) ) {
-                            cssClass = ' label-important';
+                            cssClass = ' label-danger';
                         }
 
                         return '<span class="label' + cssClass + '" data-bind="answer">' + answer + '</span>';
@@ -90,7 +90,7 @@ define(['storage', 'postal', 'transparency', 'bootstrap', 'typeahead'], function
                             answer = 'SIM';
                         }
                         else if ( /regular|inexistente/i.test( answer ) ) {
-                            cssClass = ' label-important';
+                            cssClass = ' label-danger';
                             answer = 'NÃO';
                         }
 
