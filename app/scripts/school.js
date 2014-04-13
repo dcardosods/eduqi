@@ -61,7 +61,7 @@ define(['storage', 'pubsub', 'transparency', 'bootstrap', 'typeahead', 'undersco
                 answer: {
                     html: function() {
                         var answer = this.answer;
-                        var cssClass = '';
+                        var cssClass = ' label-default';
                         if ( /bom/i.test( answer ) ) {
                             cssClass = ' label-success';
                         }
@@ -83,7 +83,7 @@ define(['storage', 'pubsub', 'transparency', 'bootstrap', 'typeahead', 'undersco
                 answer: {
                     html: function() {
                         var answer = this.answer;
-                        var cssClass = '';
+                        var cssClass = ' label-default';
                         if ( /bom/i.test( answer ) ) {
                             cssClass = ' label-success';
                             answer = 'SIM';
