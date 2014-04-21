@@ -173,78 +173,34 @@ define(['storage', 'nunjucks', 'pubsub', 'transparency', 'bootstrap', 'typeahead
     });
 
     $.subscribe( 'schools.setStatistics', function( e, data ) {
-        var collapse6 = {};
-        collapse6.infos = [];
-        var collapse7 = {};
-        collapse7.infos = [];
-        var collapse8 = {};
-        collapse8.infos = [];
-        var collapse9 = {};
-        collapse9.infos = [];
+        var template = nunjucks.env.getTemplate('statistic-panel.html')
+        var collapse6 = [];
+        var collapse7 = [];
+        var collapse8 = [];
+        var collapse9 = [];
         var i = 0;
-        var directives = [];
-
-        directives[0] = {
-            infos: {
-                bom: {
-                    text: function() {
-                        return this.bom + ' %';
-                    }
-                },
-                regular: {
-                    text: function() {
-                        return this.regular + ' %';
-                    }
-                },
-                ruim: {
-                    text: function() {
-                        return this.ruim + ' %';
-                    }
-                },
-                inexistente: {
-                    text: function() {
-                        return this.inexistente + ' %';
-                    }
-                }
-            }
-        };
-
-        directives[1] = {
-            infos: {
-                sim: {
-                    text: function() {
-                        return this.bom + ' %';
-                    }
-                },
-                nao: {
-                    text: function() {
-                        return ( Math.floor( (this.regular + this.inexistente) * 100 ) / 100 ) + ' %';
-                    }
-                }
-            }
-        };
 
         $.each( data, function( key, value ) {
             if ( i < 13 ) {
-                collapse6.infos.push( value );
+                collapse6.push( value );
             }
             else if ( i >= 13 && i < 15) {
-                collapse7.infos.push( value );
+                collapse7.push( value );
             }
             else if ( i >= 15 && i < 29) {
-                collapse8.infos.push( value );
+                collapse8.push( value );
             }
             else {
-                collapse9.infos.push( value );
+                collapse9.push( value );
             }
 
             i++;
         });
 
-        $('#collapse-6').render( collapse6, directives[0] );
-        $('#collapse-7').render( collapse7, directives[1] );
-        $('#collapse-8').render( collapse8, directives[1] );
-        $('#collapse-9').render( collapse9, directives[0] );
+        $('#collapse-6').html( template.render({statistics: collapse6}) );
+        $('#collapse-7').html( template.render({statistics: collapse7, binary: true}) );
+        $('#collapse-8').html( template.render({statistics: collapse8, binary: true}) );
+        $('#collapse-9').html( template.render({statistics: collapse9}) );
     });
 
     return {
