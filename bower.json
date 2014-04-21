@@ -1,6 +1,6 @@
 {
   "name": "eduqi",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "dependencies": {
     "requirejs": "~2.1.4",
     "jquery": "~1.9.1",
