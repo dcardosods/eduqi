@@ -1,0 +1,53 @@
+<div class="panel-inner">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Questão</th>
+                {% if binary %}
+                    <th class="text-center">Sim</th>
+                    <th class="text-center">Não</th>
+                {% else %}
+                    <th class="text-center">Bom</th>
+                    <th class="text-center">Regular</th>
+                    <th class="text-center">Ruim</th>
+                    <th class="text-center">Inexistente</th>
+                {% endif %}
+            </tr>
+        </thead>
+        <tbody>
+            {% if binary %}
+                {% for statistic in statistics %}
+                    <tr>
+                        <td data-bind="question">{{ statistic.question }}</td>
+                        <td class="text-center">
+                            <span class="label label-default label-success">{{ statistic.bom }} %</span>
+                        </td>
+                        <td class="text-center">
+                            <span class="label label-default label-danger">
+                                {{ (statistic.regular + statistic.inexistente)|round(2)  }} %
+                            </span>
+                        </td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                {% for statistic in statistics %}
+                    <tr>
+                        <td data-bind="question">{{ statistic.question }}</td>
+                        <td class="text-center">
+                            <span class="label label-default label-success">{{ statistic.bom }} %</span>
+                        </td>
+                        <td class="text-center">
+                            <span class="label label-default label-warning">{{ statistic.regular }} %</span>
+                        </td>
+                        <td class="text-center">
+                            <span class="label label-default label-danger">{{ statistic.ruim }} %</span>
+                        </td>
+                        <td class="text-center">
+                            <span class="label label-default">{{ statistic.inexistente }} %</span>
+                        </td>
+                    </tr>
+                {% endfor %}
+            {% endif %}
+        </tbody>
+    </table>
+</div>

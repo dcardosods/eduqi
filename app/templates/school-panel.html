@@ -1,0 +1,12 @@
+<div class="panel-inner">
+    <table class="table table-hover">
+    {% for question in questions %}
+        <tr>
+            <td>{{ question.question }}</td>
+            <td class="text-center">
+                {{ question.answer }}
+            </td>
+        </tr>
+    {% endfor %}
+    </table>
+</div>

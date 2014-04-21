@@ -4,11 +4,11 @@
   "dependencies": {
     "requirejs": "~2.1.4",
     "jquery": "~1.9.1",
-    "transparency": "~0.9.13",
     "underscore": "1.4.4",
     "bootstrap": "~3.1.1",
     "bootstrap3-typeahead": "~3.0.3",
-    "jquery-tiny-pubsub": "cowboy/jquery-tiny-pubsub#~0.7.0"
+    "jquery-tiny-pubsub": "cowboy/jquery-tiny-pubsub#~0.7.0",
+    "nunjucks": "~1.0.4"
   },
   "devDependencies": {}
 }
