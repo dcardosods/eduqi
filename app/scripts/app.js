@@ -1,5 +1,5 @@
 /*global define, $, _ */
-define(['maps', 'school', 'transparency'], function( maps, school ) {
+define(['maps', 'school'], function( maps, school ) {
     'use strict';
 
     var conf = {

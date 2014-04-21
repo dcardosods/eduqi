@@ -1,5 +1,5 @@
 /*global define, $, _ */
-define(['storage', 'nunjucks', 'pubsub', 'transparency', 'bootstrap', 'typeahead', 'underscore'], function( storage, nunjucks ) {
+define(['storage', 'nunjucks', 'pubsub', 'bootstrap', 'typeahead', 'underscore'], function( storage, nunjucks ) {
     'use strict';
 
     nunjucks.env = new nunjucks.Environment( new nunjucks.WebLoader('./templates') );
