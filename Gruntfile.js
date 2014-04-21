@@ -44,7 +44,8 @@ module.exports = function (grunt) {
                     middleware: function (connect) {
                         return [
                             lrSnippet,
-                            mountFolder(connect, 'app')
+                            mountFolder(connect, 'app'),
+                            mountFolder(connect, '.tmp')
                         ];
                     }
                 }
@@ -209,6 +210,13 @@ module.exports = function (grunt) {
                     dest: '<%= yeoman.dist %>/index.html'
                 }]
             }
+        },
+        nunjucks: {
+            precompile: {
+                baseDir: '<%= yeoman.app %>/templates',
+                src: '<%= yeoman.app %>/templates/*',
+                dest: '<%= yeoman.app %>/bower_components/.tmp/scripts/templates.js'
+            }
         }
     });
 
@@ -221,6 +229,7 @@ module.exports = function (grunt) {
 
         grunt.task.run([
             'livereload-start',
+            'nunjucks',
             'connect:livereload',
             'open',
             'watch'
@@ -234,6 +243,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('build', [
         'clean:dist',
+        'nunjucks',
         'useminPrepare',
         'requirejs',
         'imagemin',
