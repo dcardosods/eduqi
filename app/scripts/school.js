@@ -1,6 +1,8 @@
 /*global define, $, _ */
-define(['storage', 'pubsub', 'transparency', 'bootstrap', 'typeahead', 'underscore'], function( storage ) {
+define(['storage', 'nunjucks', 'pubsub', 'transparency', 'bootstrap', 'typeahead', 'underscore'], function( storage, nunjucks ) {
     'use strict';
+
+    nunjucks.env = new nunjucks.Environment( new nunjucks.WebLoader('./templates') );
 
     var searchData = [];
     var $schoolSearchInput = $('#school-search');
@@ -45,93 +47,75 @@ define(['storage', 'pubsub', 'transparency', 'bootstrap', 'typeahead', 'undersco
     });
 
     $.subscribe( 'schools.setInfos', function( e, data ) {
-        var collapse1 = {};
-        collapse1.infos = [];
-        var collapse2 = {};
-        collapse2.infos = [];
-        var collapse3 = {};
-        collapse3.infos = [];
-        var collapse4 = {};
-        collapse4.infos = [];
+        var template = nunjucks.env.getTemplate('school-panel.html')
+        var collapse1 = [];
+        var collapse2 = [];
+        var collapse3 = [];
+        var collapse4 = [];
         var i = 0;
-        var directives = [];
 
-        directives[0] = {
-            infos: {
-                answer: {
-                    html: function() {
-                        var answer = this.answer;
-                        var cssClass = ' label-default';
-                        if ( /bom/i.test( answer ) ) {
-                            cssClass = ' label-success';
-                        }
-                        else if ( /regular/i.test( answer ) ) {
-                            cssClass = ' label-warning';
-                        }
-                        else if ( /ruim/i.test( answer ) ) {
-                            cssClass = ' label-danger';
-                        }
-
-                        return '<span class="label' + cssClass + '" data-bind="answer">' + answer + '</span>';
-                    }
-                }
+        var directives1 = function(answer) {
+            var cssClass = ' label-default';
+            if ( /bom/i.test( answer ) ) {
+                cssClass = ' label-success';
             }
+            else if ( /regular/i.test( answer ) ) {
+                cssClass = ' label-warning';
+            }
+            else if ( /ruim/i.test( answer ) ) {
+                cssClass = ' label-danger';
+            }
+
+            return '<span class="label' + cssClass + '" data-bind="answer">' + answer + '</span>';
         };
 
-        directives[1] = {
-            infos: {
-                answer: {
-                    html: function() {
-                        var answer = this.answer;
-                        var cssClass = ' label-default';
-                        if ( /bom/i.test( answer ) ) {
-                            cssClass = ' label-success';
-                            answer = 'SIM';
-                        }
-                        else if ( /regular|inexistente/i.test( answer ) ) {
-                            cssClass = ' label-danger';
-                            answer = 'NÃO';
-                        }
-
-                        return '<span class="label' + cssClass + '" data-bind="answer">' + answer + '</span>';
-                    }
-                }
+        var directives2 = function(answer) {
+            var cssClass = ' label-default';
+            if ( /bom/i.test( answer ) ) {
+                cssClass = ' label-success';
+                answer = 'SIM';
             }
+            else if ( /regular|inexistente/i.test( answer ) ) {
+                cssClass = ' label-danger';
+                answer = 'NÃO';
+            }
+
+            return '<span class="label' + cssClass + '" data-bind="answer">' + answer + '</span>';
         };
 
         $.each( data, function( key, value ) {
             if ( i < 13 ) {
-                collapse1.infos.push({
+                collapse1.push({
                     question: value[0],
-                    answer: value[1]
+                    answer: directives1(value[1])
                 });
             }
             else if ( i >= 13 && i < 15) {
-                collapse2.infos.push({
+                collapse2.push({
                     question: value[0],
-                    answer: value[1]
+                    answer: directives2(value[1])
                 });
             }
             else if ( i >= 15 && i < 29) {
-                collapse3.infos.push({
+                collapse3.push({
                     question: value[0],
-                    answer: value[1]
+                    answer: directives2(value[1])
                 });
             }
             else {
-                collapse4.infos.push({
+                collapse4.push({
                     question: value[0],
-                    answer: value[1]
+                    answer: directives1(value[1])
                 });
             }
 
             i++;
         });
 
-        $('#collapse-1').render( collapse1, directives[0] );
-        $('#collapse-2').render( collapse2, directives[1] );
-        $('#collapse-3').render( collapse3, directives[1] );
-        $('#collapse-4').render( collapse4, directives[0] );
+        $('#collapse-1').html( template.render({questions: collapse1}) );
+        $('#collapse-2').html( template.render({questions: collapse2}) );
+        $('#collapse-3').html( template.render({questions: collapse3}) );
+        $('#collapse-4').html( template.render({questions: collapse4}) );
     });
 
     $.subscribe( 'schools.getSearchData', function( e, data ) {
