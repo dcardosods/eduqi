@@ -24,55 +24,64 @@ module.exports = function (grunt) {
     grunt.initConfig({
         yeoman: yeomanConfig,
         watch: {
+            templates: {
+                files: [
+                    '<%= yeoman.app %>/templates/{,*/}*.html',
+                ],
+                tasks: ['nunjucks'],
+                options: {
+                    livereload: true
+                }
+            },
             livereload: {
+                options: {
+                    livereload: '<%= connect.options.livereload %>'
+                },
                 files: [
                     '<%= yeoman.app %>/*.html',
-                    '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,webp}',
-                    '<%= yeoman.app %>/styles/img/*.{png,jpg,jpeg,webp}'
-                ],
-                tasks: ['livereload']
+                    '<%= yeoman.app %>/scripts/{,*/}*.js',
+                    '<%= yeoman.app %>/styles/{,*/}*.css',
+                    '<%= yeoman.app %>/images/{,*/}*',
+                    '<%= yeoman.app %>/styles/img/*'
+                ]
             }
         },
         connect: {
             options: {
                 port: 9000,
-                // change this to '0.0.0.0' to access the server from outside
+                open: true,
+                livereload: 35729,
+                // Change this to '0.0.0.0' to access the server from outside
                 hostname: 'localhost'
             },
             livereload: {
                 options: {
-                    middleware: function (connect) {
+                    middleware: function(connect) {
                         return [
-                            lrSnippet,
-                            mountFolder(connect, 'app'),
-                            mountFolder(connect, '.tmp')
+                            connect.static('.tmp'),
+                            connect.static(yeomanConfig.app)
                         ];
                     }
                 }
             },
             test: {
                 options: {
-                    middleware: function (connect) {
+                    open: false,
+                    port: 9001,
+                    middleware: function(connect) {
                         return [
-                            mountFolder(connect, 'test'),
-                            mountFolder(connect, 'app')
+                            connect.static('.tmp'),
+                            connect.static('test'),
+                            connect.static(yeomanConfig.app)
                         ];
                     }
                 }
             },
             dist: {
                 options: {
-                    middleware: function (connect) {
-                        return [
-                            mountFolder(connect, 'dist')
-                        ];
-                    }
+                    base: '<%= yeoman.dist %>',
+                    livereload: false
                 }
-            }
-        },
-        open: {
-            server: {
-                path: 'http://localhost:<%= connect.options.port %>'
             }
         },
         clean: {
@@ -220,18 +229,14 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.renameTask('regarde', 'watch');
-
     grunt.registerTask('server', function (target) {
         if (target === 'dist') {
-            return grunt.task.run(['build', 'open', 'connect:dist:keepalive']);
+            return grunt.task.run(['build', 'connect:dist:keepalive']);
         }
 
         grunt.task.run([
-            'livereload-start',
             'nunjucks',
             'connect:livereload',
-            'open',
             'watch'
         ]);
     });
