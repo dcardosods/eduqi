@@ -21,13 +21,10 @@ define(['async!https://maps.googleapis.com/maps/api/js?libraries=visualization&s
 
     var getCep = function( url, schoolId, callback ) {
         $.ajax({
-            url: url,
-            dataType: 'jsonp',
-            data: {
-                idEscola: schoolId
-            },
+            url: [url, schoolId].join('/'),
+            dataType: 'json',
             success: function( data ) {
-                callback( data );
+                callback( data.codigo );
             }
         });
     };

@@ -9,13 +9,10 @@ define(['storage', 'nunjucks', 'pubsub', 'bootstrap', 'typeahead', 'underscore']
 
     var getInfos = function( url, id, callback ) {
         $.ajax({
-            url: url,
-            dataType: 'jsonp',
-            data: {
-                idEscola: id
-            },
+            url: [url, id].join('/'),
+            dataType: 'json',
             success: function( data ) {
-                callback( data );
+                callback( data.quest );
             }
         });
     };
@@ -33,9 +30,9 @@ define(['storage', 'nunjucks', 'pubsub', 'bootstrap', 'typeahead', 'underscore']
     var getStatistics = function( url, callback ) {
         $.ajax({
             url: url,
-            dataType: 'jsonp',
+            dataType: 'json',
             success: function( data ) {
-                callback( data );
+                callback( data.results )
             }
         });
     };
@@ -52,7 +49,6 @@ define(['storage', 'nunjucks', 'pubsub', 'bootstrap', 'typeahead', 'underscore']
         var collapse2 = [];
         var collapse3 = [];
         var collapse4 = [];
-        var i = 0;
 
         var directives1 = function(answer) {
             var cssClass = ' label-default';
@@ -66,7 +62,7 @@ define(['storage', 'nunjucks', 'pubsub', 'bootstrap', 'typeahead', 'underscore']
                 cssClass = ' label-danger';
             }
 
-            return '<span class="label' + cssClass + '" data-bind="answer">' + answer + '</span>';
+            return '<span class="label' + cssClass + '">' + answer + '</span>';
         };
 
         var directives2 = function(answer) {
@@ -80,36 +76,34 @@ define(['storage', 'nunjucks', 'pubsub', 'bootstrap', 'typeahead', 'underscore']
                 answer = 'NÃO';
             }
 
-            return '<span class="label' + cssClass + '" data-bind="answer">' + answer + '</span>';
+            return '<span class="label' + cssClass + '">' + answer + '</span>';
         };
 
         $.each( data, function( key, value ) {
-            if ( i < 13 ) {
+            if ( value.id < 13 ) {
                 collapse1.push({
-                    question: value[0],
-                    answer: directives1(value[1])
+                    question: value.question,
+                    answer: directives1(value.answer)
                 });
             }
-            else if ( i >= 13 && i < 15) {
+            else if ( value.id >= 13 && value.id < 15) {
                 collapse2.push({
-                    question: value[0],
-                    answer: directives2(value[1])
+                    question: value.question,
+                    answer: directives2(value.answer)
                 });
             }
-            else if ( i >= 15 && i < 29) {
+            else if ( value.id >= 15 && value.id < 29) {
                 collapse3.push({
-                    question: value[0],
-                    answer: directives2(value[1])
+                    question: value.question,
+                    answer: directives2(value.answer)
                 });
             }
             else {
                 collapse4.push({
-                    question: value[0],
-                    answer: directives1(value[1])
+                    question: value.question,
+                    answer: directives1(value.answer)
                 });
             }
-
-            i++;
         });
 
         $('#collapse-1').html( template.render({questions: collapse1}) );

@@ -4,9 +4,9 @@ define(['maps', 'school'], function( maps, school ) {
 
     var conf = {
         cachesearch: 'http://service.eduqi.org/eduqi-service/cachesearch',
-        probservlet: 'http://service.eduqi.org/eduqi-service/probservlet',
-        questservlet: 'http://service.eduqi.org/eduqi-service/questservlet',
-        cepprovider: 'http://service.eduqi.org/eduqi-service/cepprovider',
+        probservlet: 'http://service1.eduqi.org/eduqiservice/v1/generalstats',
+        questservlet: 'http://service1.eduqi.org/eduqiservice/v1/schoolanswers',
+        cepprovider: 'http://service1.eduqi.org/eduqiservice/v1/getcep',
         geocode: 'http://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/find'
     };
 
