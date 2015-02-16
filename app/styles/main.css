@@ -27,9 +27,6 @@ body {
 .footer .well {
     text-align: left;
 }
-#prova-brasil {
-    height: 100px;
-}
 
 /* Bootstrap extends */
 .tooltip-inner.tooltip-danger {
