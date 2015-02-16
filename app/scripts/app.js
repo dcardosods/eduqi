@@ -3,10 +3,10 @@ define(['maps', 'school'], function( maps, school ) {
     'use strict';
 
     var conf = {
-        cachesearch: 'http://service.eduqi.org/eduqi-service/cachesearch',
-        probservlet: 'http://service1.eduqi.org/eduqiservice/v1/generalstats',
-        questservlet: 'http://service1.eduqi.org/eduqiservice/v1/schoolanswers',
-        cepprovider: 'http://service1.eduqi.org/eduqiservice/v1/getcep',
+        cachesearch: './data/json/cache/cache.json',
+        probservlet: './data/json/stats_average/stats_average.json',
+        questservlet: './data/json/stats',
+        cepprovider: './data/json/cep',
         geocode: 'http://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/find'
     };
 

@@ -21,10 +21,10 @@ define(['async!https://maps.googleapis.com/maps/api/js?libraries=visualization&s
 
     var getCep = function( url, schoolId, callback ) {
         $.ajax({
-            url: [url, schoolId].join('/'),
+            url: url + '/' + schoolId + '.json',
             dataType: 'json',
             success: function( data ) {
-                callback( data.codigo );
+                callback( data );
             }
         });
     };

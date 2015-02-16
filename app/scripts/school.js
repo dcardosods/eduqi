@@ -9,10 +9,10 @@ define(['storage', 'nunjucks', 'pubsub', 'bootstrap', 'typeahead', 'underscore']
 
     var getInfos = function( url, id, callback ) {
         $.ajax({
-            url: [url, id].join('/'),
+            url: url + '/' + id + '.json',
             dataType: 'json',
             success: function( data ) {
-                callback( data.quest );
+                callback( data );
             }
         });
     };
@@ -20,7 +20,7 @@ define(['storage', 'nunjucks', 'pubsub', 'bootstrap', 'typeahead', 'underscore']
     var getSearchData = function( url, callback ) {
         $.ajax({
             url: url,
-            dataType: 'jsonp',
+            dataType: 'json',
             success: function( data ) {
                 callback( data );
             }
@@ -32,7 +32,7 @@ define(['storage', 'nunjucks', 'pubsub', 'bootstrap', 'typeahead', 'underscore']
             url: url,
             dataType: 'json',
             success: function( data ) {
-                callback( data.results )
+                callback( data )
             }
         });
     };
@@ -80,28 +80,30 @@ define(['storage', 'nunjucks', 'pubsub', 'bootstrap', 'typeahead', 'underscore']
         };
 
         $.each( data, function( key, value ) {
-            if ( value.id < 13 ) {
+            var id = +key.replace('quest', '');
+
+            if ( id <= 19 ) {
                 collapse1.push({
-                    question: value.question,
-                    answer: directives1(value.answer)
+                    question: value[0],
+                    answer: directives1(value[1])
                 });
             }
-            else if ( value.id >= 13 && value.id < 15) {
+            else if ( id > 19 && id <= 21) {
                 collapse2.push({
-                    question: value.question,
-                    answer: directives2(value.answer)
+                    question: value[0],
+                    answer: directives2(value[1])
                 });
             }
-            else if ( value.id >= 15 && value.id < 29) {
+            else if ( id > 21 && id <= 35) {
                 collapse3.push({
-                    question: value.question,
-                    answer: directives2(value.answer)
+                    question: value[0],
+                    answer: directives2(value[1])
                 });
             }
             else {
                 collapse4.push({
-                    question: value.question,
-                    answer: directives1(value.answer)
+                    question: value[0],
+                    answer: directives1(value[1])
                 });
             }
         });
