@@ -190,7 +190,8 @@ module.exports = function (grunt) {
                             '*.{ico,txt}',
                             '.htaccess',
                             'styles/img/*.{png,jpg,jpeg,webp}',
-                            'CNAME'
+                            'CNAME',
+                            'data/**'
                         ]
                     },
                     {
