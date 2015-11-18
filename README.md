@@ -18,7 +18,7 @@ Os dados são obtidos através de requisições à API [eduqiservice](https://gi
 
 ### Como contribuir
 
-- Use o [EduQI](http://eduqi.org)!
+- Use o [EduQI](http://dcardosods.github.io/eduqi/)!
 - Sugira melhorias, reporte bugs, envie críticas... [EduQI/Issues](https://github.com/dcardosods/eduqi/issues)
 - Faça um fork, corrija bugs, implemente novas funcionalidades...
 
